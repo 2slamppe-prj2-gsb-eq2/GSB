@@ -99,7 +99,7 @@ public class Accueil extends javax.swing.JFrame {
         ok.getAccessibleContext().setAccessibleName("C'est parti !");
 
         getContentPane().add(background);
-        background.setBounds(0, 0, 664, 520);
+        background.setBounds(0, 0, 673, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
