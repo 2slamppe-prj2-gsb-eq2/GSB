@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JButton" name="jButton3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jButton3"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+    </Property>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="background" min="-2" pref="352" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="prenomLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nomLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="prenomText" max="32767" attributes="0"/>
+                                  <Component id="nomText" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="adresseLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="villeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cdpLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="cdpText" min="-2" pref="51" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="adresseText" max="32767" attributes="0"/>
+                                  <Component id="villeText" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="visiteurLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="laboLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chercherLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="secteurLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="cherherCombo" pref="144" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="chercherButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="laboCombo" max="32767" attributes="0"/>
+                                  <Component id="secteurCombo" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fermerButton" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="precedentButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="suiventButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="background" min="-2" pref="233" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <Component id="visiteurLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="chercherLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cherherCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chercherButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nomText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="laboLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="laboCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="prenomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="prenomText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="secteurLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="secteurCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="adresseText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="adresseLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="villeText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="villeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="precedentButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="suiventButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cdpText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cdpLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fermerButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="68" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="background">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/main/background.png"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="visiteurLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Visiteurs"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="chercherLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Chercher :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="nomLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="NOM :"/>
+      </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="NOM :"/>
+      </AccessibilityProperties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="prenomLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="PRENOM :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="adresseLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ADRESSE :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="villeLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="VILLE :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="secteurLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="SECTEUR :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="laboLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="LABO :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cherherCombo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="chercherButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ok"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chercherButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nomText">
+    </Component>
+    <Component class="javax.swing.JTextField" name="prenomText">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="prenomTextActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="adresseText">
+    </Component>
+    <Component class="javax.swing.JTextField" name="villeText">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="secteurCombo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="laboCombo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="cdpText">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cdpTextActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cdpLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CODE POSTAL :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="precedentButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pr&#xe9;c&#xe9;dent"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="precedentButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="suiventButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Suivant"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="suiventButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="fermerButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fermer"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
