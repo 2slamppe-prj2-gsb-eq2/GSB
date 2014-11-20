@@ -124,6 +124,10 @@ public class Accueil extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+        ok.getAccessibleContext().setAccessibleName("C'est parti !");
+
+        getContentPane().add(background);
+        background.setBounds(0, 0, 673, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
