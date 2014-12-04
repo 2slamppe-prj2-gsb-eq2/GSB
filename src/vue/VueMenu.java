@@ -66,6 +66,11 @@ public class VueMenu extends javax.swing.JFrame {
         jButtonMedoc.setBounds(77, 206, 106, 30);
 
         jButtonQuitter.setText("Quitter");
+        jButtonQuitter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonQuitterActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonQuitter);
         jButtonQuitter.setBounds(77, 254, 63, 30);
         getContentPane().add(jLabel2);
@@ -77,6 +82,10 @@ public class VueMenu extends javax.swing.JFrame {
     private void jButtonCrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonCrActionPerformed
+
+    private void jButtonQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQuitterActionPerformed
+    System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonQuitterActionPerformed
 
     /**
      * @param args the command line arguments

@@ -49,6 +49,11 @@ public class VueAccueil extends javax.swing.JFrame {
         ok.setText("C'est parti !");
 
         quit.setText("Quitter");
+        quit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitActionPerformed(evt);
+            }
+        });
         quit.addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
             public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
             }
@@ -131,6 +136,10 @@ public class VueAccueil extends javax.swing.JFrame {
     private void quitAncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_quitAncestorResized
         // TODO add your handling code here:
     }//GEN-LAST:event_quitAncestorResized
+
+    private void quitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitActionPerformed
+    System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_quitActionPerformed
 
     /**
      * @param args the command line arguments

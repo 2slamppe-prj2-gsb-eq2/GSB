@@ -112,6 +112,11 @@ public class VueVisiteur extends javax.swing.JPanel {
         });
 
         fermerButton.setText("Fermer");
+        fermerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fermerButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -140,9 +145,7 @@ public class VueVisiteur extends javax.swing.JPanel {
                                     .addComponent(cdpLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cdpText, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(cdpText, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(adresseText)
                                     .addComponent(villeText))))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,6 +251,10 @@ public class VueVisiteur extends javax.swing.JPanel {
     private void precedentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precedentButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_precedentButtonActionPerformed
+
+    private void fermerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fermerButtonActionPerformed
+    System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_fermerButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
