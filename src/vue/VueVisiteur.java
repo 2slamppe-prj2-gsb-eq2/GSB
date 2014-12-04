@@ -6,17 +6,21 @@
 
 package vue;
 
+import controleur.CtrlAbstrait;
+
 /**
  *
  * @author btssio
  */
-public class VueVisiteur extends javax.swing.JPanel {
+public class VueVisiteur extends  VueAbstraite {
 
     /**
      * Creates new form Visiteur
      */
-    public VueVisiteur() {
+    public VueVisiteur(CtrlAbstrait ctrl) {
+        super(ctrl);
         initComponents();
+        this.setLocation(500, 200);
     }
 
     /**

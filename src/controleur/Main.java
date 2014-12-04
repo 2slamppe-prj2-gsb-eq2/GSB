@@ -26,7 +26,7 @@ public class Main {
      */
     public static void main(String[] args)  {
 
-        String ficPropertiesJdbc  ; // nom du fichier de properties
+        String ficPropertiesJdbc ="GsbJdbc.properties" ; // nom du fichier de properties
         Properties propertiesJdbc;                              // objet de propriétés (paramètres de l'appplication) pour Jdbc
         FileInputStream input;                                  // flux de lecture des properties
         CtrlPrincipal ctrlPrincipal;                                  // référence vers le contrôleur principal
