@@ -4,18 +4,18 @@
  * and open the template in the editor.
  */
 
-package main;
+package vue;
 
 /**
  *
  * @author btssio
  */
-public class Praticiens extends javax.swing.JPanel {
+public class VuePraticiens extends javax.swing.JPanel {
 
     /**
      * Creates new form Visiteur
      */
-    public Praticiens() {
+    public VuePraticiens() {
         initComponents();
     }
 
@@ -106,8 +106,6 @@ public class Praticiens extends javax.swing.JPanel {
         jButtonNext.setText("Suivant");
 
         jButtonClose.setText("Fermer");
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/btssio/NetBeansProjects/2slamppe-prj2-gsb-eq2/src/main/background.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

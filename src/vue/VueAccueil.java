@@ -4,18 +4,18 @@
  * and open the template in the editor.
  */
 
-package main;
+package vue;
 
 /**
  *
  * @author btssio
  */
-public class Accueil extends javax.swing.JFrame {
+public class VueAccueil extends javax.swing.JFrame {
 
     /**
      * Creates new form Accueil
      */
-    public Accueil() {
+    public VueAccueil() {
         initComponents();
     }
 
@@ -42,7 +42,7 @@ public class Accueil extends javax.swing.JFrame {
 
         background.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/background.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vue/background.png"))); // NOI18N
 
         IdentifiezVous.setText("Identifiez vous :");
 
@@ -124,10 +124,6 @@ public class Accueil extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        ok.getAccessibleContext().setAccessibleName("C'est parti !");
-
-        getContentPane().add(background);
-        background.setBounds(0, 0, 673, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -153,20 +149,20 @@ public class Accueil extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Accueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VueAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Accueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VueAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Accueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VueAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Accueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VueAccueil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Accueil().setVisible(true);
+                new VueAccueil().setVisible(true);
             }
         });
     }

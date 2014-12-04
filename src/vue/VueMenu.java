@@ -4,18 +4,18 @@
  * and open the template in the editor.
  */
 
-package main;
+package vue;
 
 /**
  *
  * @author btssio
  */
-public class Menu extends javax.swing.JFrame {
+public class VueMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu
      */
-    public Menu() {
+    public VueMenu() {
         initComponents();
     }
 
@@ -68,8 +68,6 @@ public class Menu extends javax.swing.JFrame {
         jButtonQuitter.setText("Quitter");
         getContentPane().add(jButtonQuitter);
         jButtonQuitter.setBounds(77, 254, 63, 30);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("/home/btssio/NetBeansProjects/2slamppe-prj2-gsb-eq2/src/main/background.png")); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(240, 0, 660, 490);
 
@@ -97,20 +95,20 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VueMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VueMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VueMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VueMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new VueMenu().setVisible(true);
             }
         });
     }

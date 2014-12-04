@@ -4,18 +4,18 @@
  * and open the template in the editor.
  */
 
-package main;
+package vue;
 
 /**
  *
  * @author btssio
  */
-public class Medicament extends javax.swing.JPanel {
+public class VueMedicament extends javax.swing.JPanel {
 
     /**
      * Creates new form Medicament
      */
-    public Medicament() {
+    public VueMedicament() {
         initComponents();
     }
 

@@ -4,18 +4,18 @@
  * and open the template in the editor.
  */
 
-package main;
+package vue;
 
 /**
  *
  * @author btssio
  */
-public class Visiteur extends javax.swing.JPanel {
+public class VueVisiteur extends javax.swing.JPanel {
 
     /**
      * Creates new form Visiteur
      */
-    public Visiteur() {
+    public VueVisiteur() {
         initComponents();
     }
 
@@ -56,7 +56,7 @@ public class Visiteur extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/background.png"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vue/background.png"))); // NOI18N
 
         visiteurLabel.setText("Visiteurs");
 
@@ -227,8 +227,6 @@ public class Visiteur extends javax.swing.JPanel {
                     .addComponent(fermerButton))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
-
-        nomLabel.getAccessibleContext().setAccessibleName("NOM :");
     }// </editor-fold>//GEN-END:initComponents
 
     private void chercherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherButtonActionPerformed

@@ -4,18 +4,18 @@
  * and open the template in the editor.
  */
 
-package main;
+package vue;
 
 /**
  *
  * @author btssio
  */
-public class RapportVisite extends javax.swing.JPanel {
+public class VueRapportVisite extends javax.swing.JPanel {
 
     /**
      * Creates new form RapportVisite
      */
-    public RapportVisite() {
+    public VueRapportVisite() {
         initComponents();
     }
 
