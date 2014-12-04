@@ -14,12 +14,12 @@ public class Jdbc implements JdbcInterface {
     private static Jdbc singleton = null;
     
     // Paramètre de la connexion
-    private String piloteJdbc = "oracle.jdbc.driver.OracleDriver";
-    private String protocoleJdbc = "jdbc:oracle:thin:";
+    private String piloteJdbc = "";
+    private String protocoleJdbc = "";
     private String serveurBd = "";
-    private String nomBd = "GSB";
-    private String loginSgbd = "GSB";
-    private String mdpSgbd = "GSB";
+    private String nomBd = "";
+    private String loginSgbd = "";
+    private String mdpSgbd = "";
     
     // Connexion
     private Connection connexion = null; // java.sql.Connection

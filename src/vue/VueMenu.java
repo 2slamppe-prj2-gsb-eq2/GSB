@@ -42,7 +42,6 @@ public class VueMenu extends  VueAbstraite {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         jButtonCr.setText("Compte Rendus");
         jButtonCr.addActionListener(new java.awt.event.ActionListener() {
@@ -50,25 +49,16 @@ public class VueMenu extends  VueAbstraite {
                 jButtonCrActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonCr);
-        jButtonCr.setBounds(77, 62, 122, 30);
 
         jLabel1.setBackground(new java.awt.Color(55, 66, 128));
+        jLabel1.setFont(new java.awt.Font("gargi", 0, 15)); // NOI18N
         jLabel1.setText("MENU | APP GSB");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(77, 26, 440, 24);
 
         jButtonVisit.setText("Visiteurs");
-        getContentPane().add(jButtonVisit);
-        jButtonVisit.setBounds(77, 110, 122, 30);
 
         jButtonPrat.setText("Praticiens");
-        getContentPane().add(jButtonPrat);
-        jButtonPrat.setBounds(77, 158, 122, 30);
 
         jButtonMedoc.setText("Médicaments");
-        getContentPane().add(jButtonMedoc);
-        jButtonMedoc.setBounds(77, 206, 106, 30);
 
         jButtonQuitter.setText("Quitter");
         jButtonQuitter.addActionListener(new java.awt.event.ActionListener() {
@@ -76,10 +66,44 @@ public class VueMenu extends  VueAbstraite {
                 jButtonQuitterActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonQuitter);
-        jButtonQuitter.setBounds(77, 254, 63, 30);
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(240, 0, 660, 490);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonVisit, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonPrat, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonMedoc, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonQuitter, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonCr)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonCr)
+                        .addGap(20, 20, 20)
+                        .addComponent(jButtonVisit)
+                        .addGap(20, 20, 20)
+                        .addComponent(jButtonPrat)
+                        .addGap(20, 20, 20)
+                        .addComponent(jButtonMedoc))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(212, 212, 212)
+                        .addComponent(jButtonQuitter))))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
