@@ -76,6 +76,11 @@ public class VueMedicament extends javax.swing.JPanel {
         jButtonSuivant.setText("Suivant");
 
         jButtonFermer.setText("Fermer");
+        jButtonFermer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFermerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -173,6 +178,10 @@ public class VueMedicament extends javax.swing.JPanel {
     private void jTextFieldCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCodeActionPerformed
+
+    private void jButtonFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFermerActionPerformed
+    System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonFermerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

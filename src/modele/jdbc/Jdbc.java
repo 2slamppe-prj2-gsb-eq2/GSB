@@ -6,7 +6,6 @@ import java.util.*;
 /**
  * Singleton fournit un objet de connexion JDBC
  *
- * @author nbourgeois
  * @version 2 22 novembre 2013
  */
 public class Jdbc implements JdbcInterface {

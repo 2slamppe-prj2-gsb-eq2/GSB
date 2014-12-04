@@ -139,6 +139,7 @@
             <Property name="text" type="java.lang.String" value="Quitter"/>
           </Properties>
           <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quitActionPerformed"/>
             <EventHandler event="ancestorResized" listener="java.awt.event.HierarchyBoundsListener" parameters="java.awt.event.HierarchyEvent" handler="quitAncestorResized"/>
           </Events>
         </Component>
