@@ -183,7 +183,7 @@
     <Component class="javax.swing.JLabel" name="background">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/main/background.png"/>
+          <Image iconType="3" name="/vue/background.png"/>
         </Property>
       </Properties>
     </Component>
@@ -201,9 +201,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="NOM :"/>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="NOM :"/>
-      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JLabel" name="prenomLabel">
       <Properties>
