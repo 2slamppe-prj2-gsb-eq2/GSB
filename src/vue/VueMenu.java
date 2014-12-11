@@ -7,6 +7,7 @@
 package vue;
 
 import controleur.CtrlAbstrait;
+import controleur.CtrlMenu;
 
 /**
  *
@@ -55,6 +56,11 @@ public class VueMenu extends  VueAbstraite {
         jLabel1.setText("MENU | APP GSB");
 
         jButtonVisit.setText("Visiteurs");
+        jButtonVisit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVisitActionPerformed(evt);
+            }
+        });
 
         jButtonPrat.setText("Praticiens");
 
@@ -115,6 +121,10 @@ public class VueMenu extends  VueAbstraite {
     private void jButtonQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQuitterActionPerformed
     System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonQuitterActionPerformed
+
+    private void jButtonVisitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVisitActionPerformed
+((CtrlMenu)controleur).visiteur();       // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonVisitActionPerformed
 
     /**
      * @param args the command line arguments

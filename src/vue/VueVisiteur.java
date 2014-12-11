@@ -7,6 +7,7 @@
 package vue;
 
 import controleur.CtrlAbstrait;
+import controleur.CtrlMenu;
 
 /**
  *
@@ -58,25 +59,38 @@ public class VueVisiteur extends  VueAbstraite {
 
         jButton3.setText("jButton3");
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vue/background.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 352, 233));
 
         visiteurLabel.setText("Visiteurs");
+        getContentPane().add(visiteurLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 44, -1, -1));
 
         chercherLabel.setText("Chercher :");
+        getContentPane().add(chercherLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(369, 113, -1, -1));
 
         nomLabel.setText("NOM :");
+        getContentPane().add(nomLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 250, -1, -1));
 
         prenomLabel.setText("PRENOM :");
+        getContentPane().add(prenomLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 291, -1, -1));
 
         adresseLabel.setText("ADRESSE :");
+        getContentPane().add(adresseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 331, -1, -1));
 
         villeLabel.setText("VILLE :");
+        getContentPane().add(villeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 371, -1, -1));
 
         secteurLabel.setText("SECTEUR :");
+        getContentPane().add(secteurLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 291, -1, -1));
 
         laboLabel.setText("LABO :");
+        getContentPane().add(laboLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 250, -1, -1));
+
+        getContentPane().add(cherherCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 108, 144, -1));
 
         chercherButton.setText("Ok");
         chercherButton.addActionListener(new java.awt.event.ActionListener() {
@@ -84,22 +98,33 @@ public class VueVisiteur extends  VueAbstraite {
                 chercherButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(chercherButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(622, 107, -1, -1));
+        getContentPane().add(nomText, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 245, 226, -1));
 
         prenomText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 prenomTextActionPerformed(evt);
             }
         });
+        getContentPane().add(prenomText, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 286, 226, -1));
+        getContentPane().add(adresseText, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 326, 226, -1));
 
         villeText.setToolTipText("");
+        getContentPane().add(villeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 366, 226, -1));
+
+        getContentPane().add(secteurCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 286, 150, -1));
+
+        getContentPane().add(laboCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 245, 150, -1));
 
         cdpText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cdpTextActionPerformed(evt);
             }
         });
+        getContentPane().add(cdpText, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 401, 51, -1));
 
         cdpLabel.setText("CODE POSTAL :");
+        getContentPane().add(cdpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 406, -1, -1));
 
         precedentButton.setText("Précédent");
         precedentButton.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +132,7 @@ public class VueVisiteur extends  VueAbstraite {
                 precedentButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(precedentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(417, 347, -1, -1));
 
         suiventButton.setText("Suivant");
         suiventButton.addActionListener(new java.awt.event.ActionListener() {
@@ -114,6 +140,7 @@ public class VueVisiteur extends  VueAbstraite {
                 suiventButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(suiventButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(553, 347, -1, -1));
 
         fermerButton.setText("Fermer");
         fermerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -121,119 +148,7 @@ public class VueVisiteur extends  VueAbstraite {
                 fermerButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 5, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(prenomLabel)
-                                    .addComponent(nomLabel))
-                                .addGap(50, 50, 50)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(prenomText)
-                                    .addComponent(nomText)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(adresseLabel)
-                                    .addComponent(villeLabel)
-                                    .addComponent(cdpLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cdpText, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(adresseText)
-                                    .addComponent(villeText))))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(visiteurLabel)
-                                .addGap(128, 128, 128))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(laboLabel)
-                                    .addComponent(chercherLabel)
-                                    .addComponent(secteurLabel))
-                                .addGap(18, 18, 18)
-                                .addComponent(cherherCombo, 0, 144, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(chercherButton)
-                                .addGap(35, 35, 35))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(82, 82, 82)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(laboCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(secteurCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fermerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(precedentButton)
-                                        .addGap(50, 50, 50)
-                                        .addComponent(suiventButton)))))
-                        .addGap(62, 62, 62))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(44, 44, 44)
-                                .addComponent(visiteurLabel)
-                                .addGap(45, 45, 45)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(chercherLabel)
-                                    .addComponent(cherherCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(chercherButton))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nomText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nomLabel)
-                            .addComponent(laboLabel)
-                            .addComponent(laboCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(13, 13, 13)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(prenomLabel)
-                            .addComponent(prenomText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(secteurLabel)
-                            .addComponent(secteurCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(adresseText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(adresseLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(villeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(villeLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(precedentButton)
-                            .addComponent(suiventButton))
-                        .addGap(23, 23, 23)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cdpText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cdpLabel)
-                    .addComponent(fermerButton))
-                .addContainerGap(68, Short.MAX_VALUE))
-        );
+        getContentPane().add(fermerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(417, 400, 210, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void chercherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherButtonActionPerformed
@@ -257,7 +172,7 @@ public class VueVisiteur extends  VueAbstraite {
     }//GEN-LAST:event_precedentButtonActionPerformed
 
     private void fermerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fermerButtonActionPerformed
-    System.exit(0);        // TODO add your handling code here:
+   // TODO add your handling code here:
     }//GEN-LAST:event_fermerButtonActionPerformed
 
 

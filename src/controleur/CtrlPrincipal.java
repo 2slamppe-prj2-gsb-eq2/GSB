@@ -1,4 +1,4 @@
-package controleur;
+ package controleur;
 
 
 import javax.swing.JOptionPane;
@@ -64,7 +64,7 @@ public class CtrlPrincipal {
         } else {
             // si la le contrôleur et sa vue existent déjà
             // il faut rafraîchir le contenu à partir de la base de données
-            ctrlVisiteur.actualiser();
+            //ctrlVisiteur.actualiser();
         }
         // vuPresence est une fenêtre modale :
         // -> vueMenu reste visible, mais n'est pas active

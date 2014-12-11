@@ -19,15 +19,12 @@ import vue.VueVisiteur;
  */
 public class CtrlVisiteur extends CtrlAbstrait {
 
-    public CtrlVisiteur(CtrlPrincipal l) {
-        super(l);
+    public CtrlVisiteur(CtrlPrincipal ctrlPrincipal) {
+        super(ctrlPrincipal);
         vue = new  VueVisiteur(this);
-        actualiser();
+        System.out.println(vue) ;
     }
 
-    public final void actualiser() {
-      
-    }
-
+ 
     
 }

@@ -14,6 +14,7 @@ public class CtrlMenu extends CtrlAbstrait {
     public CtrlMenu(CtrlPrincipal ctrlPrincipal) {
         super(ctrlPrincipal);
         vue = new VueMenu(this);
+        System.out.println(vue) ;
     }
 
     /**
