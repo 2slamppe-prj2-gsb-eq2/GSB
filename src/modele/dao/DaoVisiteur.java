@@ -8,6 +8,7 @@ package modele.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import modele.jdbc.Jdbc;
 import modele.metier.Visiteur;
@@ -15,41 +16,51 @@ import modele.metier.Visiteur;
 /**
  * @author btssio
  */
-public class DaoVisiteur implements DaoInterface<Visiteur, String>{
+public class DaoVisiteur implements DaoInterface<Visiteur, String> {
 
     @Override
     public int create(Visiteur unVisiteur) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
     @Override
     public Visiteur getOne(String matricule) throws Exception {
         Visiteur result = null;
         ResultSet rs = null;
-      
-        System.out.println(matricule) ;
+
+        System.out.println(matricule);
         String requete = "SELECT * FROM VISITEUR WHERE VIS_MATRICULE = ?";
-        System.out.println(requete) ;
         try {
             PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
-            System.out.println(ps) ;
             ps.setString(1, matricule);
             rs = ps.executeQuery();
             if (rs.next()) {
-                System.out.println(rs) ;
                 result = chargerUnEnregistrement(rs);
             }
         } catch (SQLException ex) {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
-        System.out.println(result) ;
         return (result);
     }
 
     @Override
-    public Collection getAll() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<Visiteur> getAll() throws Exception {
+        ArrayList<Visiteur> result = new ArrayList<Visiteur>();
+        ResultSet rs;
+        // préparer la requête
+        String requete = "SELECT * FROM VISITEUR";
+        try {
+            PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
+            rs = ps.executeQuery();
+            // Charger les enregistrements dans la collection
+            while (rs.next()) {
+                Visiteur unVisiteur = chargerUnEnregistrement(rs);
+                result.add(unVisiteur);
+            }
+        } catch (SQLException ex) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+        return result;
     }
 
     @Override
@@ -61,7 +72,8 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String>{
     public int delete(String matricule) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-     //----------------------------------------------------------------------
+
+    //----------------------------------------------------------------------
     //  Méthodes privées
     //----------------------------------------------------------------------
     /**
@@ -76,7 +88,7 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String>{
      */
     private Visiteur chargerUnEnregistrement(ResultSet rs) throws DaoException {
         try {
-            System.out.println(rs) ;
+            System.out.println(rs);
             Visiteur visiteur = new Visiteur();
             visiteur.setMatricule(rs.getString("VIS_MATRICULE"));
             visiteur.setNom(rs.getString("VIS_NOM"));
@@ -85,8 +97,8 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String>{
             visiteur.setCp(rs.getString("VIS_CP"));
             visiteur.setVille(rs.getString("VIS_VILLE"));
             visiteur.setDateEmbauche(rs.getDate("VIS_DATEEMBAUCHE"));
-            
-            System.out.println(visiteur) ;
+
+            System.out.println(visiteur);
             return visiteur;
         } catch (SQLException ex) {
             throw new DaoException("DaoEquipier - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());
