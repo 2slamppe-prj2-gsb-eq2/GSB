@@ -6,6 +6,7 @@
 
 package Test;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Map;
@@ -15,6 +16,7 @@ import modele.dao.DaoException;
 import modele.dao.DaoVisiteur;
 import modele.jdbc.FabriqueJdbc;
 import modele.jdbc.Jdbc;
+import modele.metier.Visiteur;
 
 /**
  *
@@ -24,9 +26,25 @@ public class testDaoVisiteur {
 
     static DaoVisiteur daoVisiteur = new DaoVisiteur();
     
-     public static boolean testGetAll()  {
-         boolean ok = true ;
-         return ok ;
+     public static boolean testSelectOne() throws ClassNotFoundException, SQLException, Exception  {
+        boolean ok = true ;
+        String matricule = "a131" ;
+        Visiteur visiteur = daoVisiteur.getOne(matricule);
+        System.out.println(visiteur) ;
+        return ok ; 
      }
+     
+      public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException, SQLException, DaoException, Exception {
+        System.out.println("Tests unitaires DAO");
+ 
+        FabriqueJdbc.creer("gsbJdbc.properties") ;
+        Jdbc.getInstance().connecter();
+        System.out.println("Test 1 : Selection d'un visiteur\n\r ") ;
+        testSelectOne() ;
+
+        System.out.println("\nDéconnexion");
+        Jdbc.getInstance().deconnecter();
+
+    }
      
 }

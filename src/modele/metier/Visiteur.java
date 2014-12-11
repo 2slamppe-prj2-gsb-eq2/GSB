@@ -14,7 +14,8 @@ import java.util.*;
 public class Visiteur {
 
     private String matricule;
-    private String prenom;
+    private String nom ;
+    private String prenom ;
     private String adresse;
     private String cp;
     private String ville;
@@ -32,7 +33,20 @@ public class Visiteur {
         this.leSecteur = leSecteur;
         this.leLabo = leLabo;
     }
+    public Visiteur()
+    {
+        super() ;
+    }
 
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    
     public String getMatricule() {
         return matricule;
     }
