@@ -195,7 +195,7 @@ public class VueVisiteur extends  VueAbstraite {
     private javax.swing.JLabel cdpLabel;
     private javax.swing.JTextField cdpText;
     private javax.swing.JButton chercherButton;
-    private javax.swing.JComboBox chercherCombo;
+    public javax.swing.JComboBox chercherCombo;
     private javax.swing.JLabel chercherLabel;
     private javax.swing.JButton fermerButton;
     private javax.swing.JButton jButton3;

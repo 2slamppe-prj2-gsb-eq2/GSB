@@ -26,7 +26,7 @@ public class CtrlPrincipal {
         ctrlMenu.getVue().setVisible(true);
     }
 
-    public void action(EnumAction action) {
+    public void action(EnumAction action) throws Exception {
         switch (action) {
             case MENU_VISITEUR: // activation de vuePresence depuis vueMenu
                 menuVisiteur();
@@ -58,7 +58,7 @@ public class CtrlPrincipal {
     /**
      * Transition vueMenu / vuePresence
      */
-    private void menuVisiteur() {
+    private void menuVisiteur() throws Exception {
         if (ctrlVisiteur == null) {
             ctrlVisiteur = new CtrlVisiteur(this);
         } else {
