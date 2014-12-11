@@ -9,8 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import modele.jdbc.Jdbc;
+import modele.metier.Labo;
 import modele.metier.Visiteur;
 
 /**
@@ -18,6 +18,8 @@ import modele.metier.Visiteur;
  */
 public class DaoVisiteur implements DaoInterface<Visiteur, String> {
 
+    private DaoLabo daoLabo = new DaoLabo();
+    
     @Override
     public int create(Visiteur unVisiteur) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -43,7 +45,7 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String> {
         return (result);
     } 
     
-    public Visiteur getByName(String nom,String prenom) throws DaoException
+    public Visiteur getByName(String nom,String prenom) throws DaoException, Exception
     {
          Visiteur result = null;
         ResultSet rs = null;
@@ -98,18 +100,16 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String> {
     //  Méthodes privées
     //----------------------------------------------------------------------
     /**
-     * chargerUnEnregistrementEquipier Instancie un objet visiteur avec les
-     * valeurs lues dans la base de données La jointure avec la table PRESENCE
-     * n'est pas effectuée
-     *
-     * @param rs enregistrement de la table Equipier courant
-     * @return un objet Equipier, dont la liste des "présences" n'est pas
-     * renseignée
+     * chargerUnEnregistrementVisiteur Instancie un objet visiteur avec les
+     * valeurs lues dans la base de données 
+     * @param rs enregistrement de la table Visiteur courant
+     * @return un objet Visiteur
      * @throws DaoException
      */
-    private Visiteur chargerUnEnregistrement(ResultSet rs) throws DaoException {
+    private Visiteur chargerUnEnregistrement(ResultSet rs) throws DaoException, Exception {
         try {
-            System.out.println(rs);
+            
+            String labCode ;
             Visiteur visiteur = new Visiteur();
             visiteur.setMatricule(rs.getString("VIS_MATRICULE"));
             visiteur.setNom(rs.getString("VIS_NOM"));
@@ -118,8 +118,11 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String> {
             visiteur.setCp(rs.getString("VIS_CP"));
             visiteur.setVille(rs.getString("VIS_VILLE"));
             visiteur.setDateEmbauche(rs.getDate("VIS_DATEEMBAUCHE"));
-
-            System.out.println(visiteur);
+            labCode = rs.getString("LAB_CODE") ;
+            System.out.println(labCode) ;
+            visiteur.setLeLabo(daoLabo.getOne(rs.getString("LAB_CODE")));
+            
+        
             return visiteur;
         } catch (SQLException ex) {
             throw new DaoException("DaoEquipier - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());

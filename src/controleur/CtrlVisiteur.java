@@ -15,7 +15,9 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JOptionPane;
 import modele.dao.DaoException;
+import modele.dao.DaoLabo;
 import modele.dao.DaoVisiteur;
+import modele.metier.Labo;
 import modele.metier.Visiteur;
 import vue.VueVisiteur;
 
@@ -27,12 +29,21 @@ import vue.VueVisiteur;
 public class CtrlVisiteur extends CtrlAbstrait {
 
      static DaoVisiteur daoVisiteur = new DaoVisiteur();
+     static DaoLabo daoLabo = new DaoLabo() ;
+     private List<Labo> lesLabos;
+    //private List<Secteur> lesSecteurs;
      
     public CtrlVisiteur(CtrlPrincipal ctrlPrincipal) throws Exception {
         super(ctrlPrincipal);
         vue = new  VueVisiteur(this);
         chargerListeVisiteurs() ;
         search() ;
+        
+        lesLabos = daoLabo.getAll();
+        System.out.println(lesLabos);
+        afficherListeLabo(lesLabos);
+  
+        
     }
     
      @Override
@@ -51,33 +62,53 @@ public class CtrlVisiteur extends CtrlAbstrait {
   
         }
     
+    private void afficherListeLabo(List<Labo> lesLabos)
+    {
+        getVue().laboCombo.removeAllItems();
+        getVue().laboCombo.addItem("aucun");
+        for(int i=0; i<lesLabos.size(); i++ ){
+            getVue().laboCombo.addItem(lesLabos.get(i).getNom());
+        }
+     } 
+    
+    
+    /***
+     ** Affiche les détails du visiteurs en fonction du visiteurs courant
+     ** afficher dans la combo box
+     ** lors de l'évenement
+     ** du clique du bouton ok
+     * 
+     **/
+    
     private void search() 
     {
        
-        String tab[] ;
+   
        getVue().chercherButton.addActionListener(new ActionListener() {
             private Visiteur unVisiteur;
+            Labo unLab ;
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 
              String leVisiteur = getVue().chercherCombo.getSelectedItem().toString();
-             System.out.println(leVisiteur);
              String string = leVisiteur;
              String[] parts = string.split(" ");
              String nom = parts[0]; // 004
              String prenom = parts[1]; // 034556
-                try {
-                    unVisiteur = daoVisiteur.getByName(nom, prenom) ;
-                } catch (DaoException ex) {
-                    Logger.getLogger(CtrlVisiteur.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                System.out.println(unVisiteur.getNom()) ;
+             try {
+                 unVisiteur = daoVisiteur.getByName(nom, prenom) ;
+             } catch (Exception ex) {
+                 Logger.getLogger(CtrlVisiteur.class.getName()).log(Level.SEVERE, null, ex);
+             }                            
                 getVue().nomText.setText(unVisiteur.getNom());
-                getVue().nomText.setText(unVisiteur.getPrenom());
-                getVue().nomText.setText(unVisiteur.getAdresse());
-                getVue().nomText.setText(unVisiteur.getVille());
-                getVue().nomText.setText(unVisiteur.getCp());
+                getVue().prenomText.setText(unVisiteur.getPrenom());
+                getVue().adresseText.setText(unVisiteur.getAdresse());
+                getVue().villeText.setText(unVisiteur.getVille());
+                getVue().cdpText.setText(unVisiteur.getCp());
+                getVue().laboCombo.setSelectedItem(unVisiteur.getLeLabo());
+                 getVue().laboCombo.setSelectedItem(unVisiteur.getLeLabo());
+                
                         
             }
         });

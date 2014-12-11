@@ -5,11 +5,13 @@
  */
 package modele.metier;
 
+
+
 /**
  *
  * @author btssio
  */
-public class Labo {
+public class Labo  {
 
     private String code;
     private String nom;
@@ -20,6 +22,11 @@ public class Labo {
         this.nom = nom;
         this.chefVente = chefVente;
     }
+    public Labo()
+    {
+        super() ;
+    }
+    
 
     public String getCode() {
         return code;
@@ -44,5 +51,12 @@ public class Labo {
     public void setChefVente(String chefVente) {
         this.chefVente = chefVente;
     }
+
+    @Override
+    public String toString() {
+        return "Labo{" + "code=" + code + ", nom=" + nom + ", chefVente=" + chefVente + '}';
+    }
+    
+    
 
 }
