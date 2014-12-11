@@ -190,27 +190,27 @@ public class VueVisiteur extends  VueAbstraite {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel adresseLabel;
-    private javax.swing.JTextField adresseText;
+    public javax.swing.JTextField adresseText;
     private javax.swing.JLabel background;
     private javax.swing.JLabel cdpLabel;
-    private javax.swing.JTextField cdpText;
-    private javax.swing.JButton chercherButton;
+    public javax.swing.JTextField cdpText;
+    public javax.swing.JButton chercherButton;
     public javax.swing.JComboBox chercherCombo;
     private javax.swing.JLabel chercherLabel;
     private javax.swing.JButton fermerButton;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox laboCombo;
+    public javax.swing.JComboBox laboCombo;
     private javax.swing.JLabel laboLabel;
     private javax.swing.JLabel nomLabel;
-    private javax.swing.JTextField nomText;
+    public javax.swing.JTextField nomText;
     private javax.swing.JButton precedentButton;
     private javax.swing.JLabel prenomLabel;
-    private javax.swing.JTextField prenomText;
-    private javax.swing.JComboBox secteurCombo;
+    public javax.swing.JTextField prenomText;
+    public javax.swing.JComboBox secteurCombo;
     private javax.swing.JLabel secteurLabel;
     private javax.swing.JButton suiventButton;
     private javax.swing.JLabel villeLabel;
-    private javax.swing.JTextField villeText;
+    public javax.swing.JTextField villeText;
     private javax.swing.JLabel visiteurLabel;
     // End of variables declaration//GEN-END:variables
 }

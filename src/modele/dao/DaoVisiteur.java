@@ -28,11 +28,32 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String> {
         Visiteur result = null;
         ResultSet rs = null;
 
-        System.out.println(matricule);
+    
         String requete = "SELECT * FROM VISITEUR WHERE VIS_MATRICULE = ?";
         try {
             PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
             ps.setString(1, matricule);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                result = chargerUnEnregistrement(rs);
+            }
+        } catch (SQLException ex) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+        return (result);
+    } 
+    
+    public Visiteur getByName(String nom,String prenom) throws DaoException
+    {
+         Visiteur result = null;
+        ResultSet rs = null;
+
+        
+        String requete = "SELECT * FROM VISITEUR WHERE VIS_NOM = ? AND VIS_PRENOM = ?";
+        try {
+            PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
+            ps.setString(1, nom);
+            ps.setString(2, prenom);
             rs = ps.executeQuery();
             if (rs.next()) {
                 result = chargerUnEnregistrement(rs);
@@ -48,7 +69,7 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String> {
         ArrayList<Visiteur> result = new ArrayList<Visiteur>();
         ResultSet rs;
         // préparer la requête
-        String requete = "SELECT * FROM VISITEUR ORDER BY nom";
+        String requete = "SELECT * FROM VISITEUR ORDER BY VIS_NOM";
         try {
             PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
             rs = ps.executeQuery();
@@ -93,7 +114,7 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String> {
             visiteur.setMatricule(rs.getString("VIS_MATRICULE"));
             visiteur.setNom(rs.getString("VIS_NOM"));
             visiteur.setPrenom(rs.getString("VIS_PRENOM"));
-            visiteur.setAdresse(rs.getString("Vis_PRENOM"));
+            visiteur.setAdresse(rs.getString("VIS_ADRESSE"));
             visiteur.setCp(rs.getString("VIS_CP"));
             visiteur.setVille(rs.getString("VIS_VILLE"));
             visiteur.setDateEmbauche(rs.getDate("VIS_DATEEMBAUCHE"));
