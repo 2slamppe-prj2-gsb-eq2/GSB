@@ -110,5 +110,13 @@ public class Visiteur {
     public void setLeLabo(Labo leLabo) {
         this.leLabo = leLabo;
     }
+    
+        public String versChaine() {
+        String resu = "";
+        resu += "Visiteur{" + "matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse;
+        resu += "cp "+cp+" ,ville"+ville ;    
+        resu += '}';
+        return resu;
+    }
 
 }
