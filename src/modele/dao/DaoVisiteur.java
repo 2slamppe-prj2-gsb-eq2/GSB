@@ -29,10 +29,11 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String>{
         ResultSet rs = null;
         // préparer la requête
         System.out.println(matricule) ;
-        String requete = "SELECT * FROM VISITEUR WHERE VIS_MATRICULE = ?";
+        String requete = "SELECT * FROM VISITEUR WHERE VIS_MATRICULE = 'a131'";
         System.out.println(requete) ;
         try {
             PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
+            System.out.println(ps) ;
             ps.setString(1, matricule);
             rs = ps.executeQuery();
             if (rs.next()) {
