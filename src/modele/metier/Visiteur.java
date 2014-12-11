@@ -14,8 +14,8 @@ import java.util.*;
 public class Visiteur {
 
     private String matricule;
-    private String nom ;
-    private String prenom ;
+    private String nom;
+    private String prenom;
     private String adresse;
     private String cp;
     private String ville;
@@ -23,8 +23,9 @@ public class Visiteur {
     private Secteur leSecteur;
     private Labo leLabo;
 
-    public Visiteur(String matricule, String prenom, String adresse, String cp, String ville, Date dateEmbauche, Secteur leSecteur, Labo leLabo) {
+    public Visiteur(String matricule, String nom, String prenom, String adresse, String cp, String ville, Date dateEmbauche, Secteur leSecteur, Labo leLabo) {
         this.matricule = matricule;
+        this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
         this.cp = cp;
@@ -33,9 +34,17 @@ public class Visiteur {
         this.leSecteur = leSecteur;
         this.leLabo = leLabo;
     }
-    public Visiteur()
-    {
-        super() ;
+
+    public Visiteur() {
+        super();
+    }
+
+    public String getMatricule() {
+        return matricule;
+    }
+
+    public void setMatricule(String matricule) {
+        this.matricule = matricule;
     }
 
     public String getNom() {
@@ -44,15 +53,6 @@ public class Visiteur {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    
-    public String getMatricule() {
-        return matricule;
-    }
-
-    public void setMatricule(String matricule) {
-        this.matricule = matricule;
     }
 
     public String getPrenom() {
