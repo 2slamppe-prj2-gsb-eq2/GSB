@@ -24,6 +24,11 @@ public class CtrlVisiteur extends CtrlAbstrait {
         vue = new  VueVisiteur(this);
         System.out.println(vue) ;
     }
+    
+     @Override
+    public VueVisiteur getVue() {
+        return (VueVisiteur) vue;
+    }
 
  
     

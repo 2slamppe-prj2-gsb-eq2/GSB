@@ -8,6 +8,7 @@ package vue;
 
 import controleur.CtrlAbstrait;
 import controleur.CtrlMenu;
+import javax.swing.JFrame;
 
 /**
  *
@@ -22,6 +23,7 @@ public class VueVisiteur extends  VueAbstraite {
         super(ctrl);
         initComponents();
         this.setLocation(500, 200);
+        this.setBounds(500, 200, 1236, 490);
     }
 
     /**
@@ -59,8 +61,9 @@ public class VueVisiteur extends  VueAbstraite {
 
         jButton3.setText("jButton3");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1226, 490));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vue/background.png"))); // NOI18N
@@ -172,7 +175,7 @@ public class VueVisiteur extends  VueAbstraite {
     }//GEN-LAST:event_precedentButtonActionPerformed
 
     private void fermerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fermerButtonActionPerformed
-   // TODO add your handling code here:
+    this.setVisible(false) ;
     }//GEN-LAST:event_fermerButtonActionPerformed
 
 

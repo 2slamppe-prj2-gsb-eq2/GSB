@@ -28,14 +28,21 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String>{
         Visiteur result = null;
         ResultSet rs = null;
         // préparer la requête
-        String requete = "SELECT * FROM VISITEUR WHERE VIS_MATRICULE LIKE ?";
+        System.out.println(matricule) ;
+        String requete = "SELECT * FROM VISITEUR WHERE VIS_MATRICULE = ?";
+        System.out.println(requete) ;
         try {
             PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
             ps.setString(1, matricule);
             rs = ps.executeQuery();
+            if (rs.next()) {
+                System.out.println(rs) ;
+                result = chargerUnEnregistrement(rs);
+            }
         } catch (SQLException ex) {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
+        System.out.println(result) ;
         return (result);
     }
 
@@ -52,6 +59,33 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String>{
     @Override
     public int delete(String matricule) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+     //----------------------------------------------------------------------
+    //  Méthodes privées
+    //----------------------------------------------------------------------
+    /**
+     * chargerUnEnregistrementEquipier Instancie un objet visiteur avec les
+     * valeurs lues dans la base de données La jointure avec la table PRESENCE
+     * n'est pas effectuée
+     *
+     * @param rs enregistrement de la table Equipier courant
+     * @return un objet Equipier, dont la liste des "présences" n'est pas
+     * renseignée
+     * @throws DaoException
+     */
+    private Visiteur chargerUnEnregistrement(ResultSet rs) throws DaoException {
+        try {
+            Visiteur visiteur = new Visiteur();
+            visiteur.setMatricule(rs.getString("VIS_MATRICULE"));
+            visiteur.setNom(rs.getString("VIS_NOM"));
+            visiteur.setPrenom(rs.getString("Vis_PRENOM"));
+            visiteur.setAdresse(rs.getString("VIS_PRENOM"));
+            visiteur.setCp(rs.getString("VIS_CP"));
+            visiteur.setVille(rs.getString("VIS_VILLE"));
+            return visiteur;
+        } catch (SQLException ex) {
+            throw new DaoException("DaoEquipier - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());
+        }
     }
 
 }
