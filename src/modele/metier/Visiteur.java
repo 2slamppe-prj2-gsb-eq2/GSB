@@ -119,4 +119,9 @@ public class Visiteur {
         return resu;
     }
 
+    @Override
+    public String toString() {
+        return "Visiteur{" + "matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", cp=" + cp + ", ville=" + ville + ", dateEmbauche=" + dateEmbauche + ", leSecteur=" + leSecteur + ", leLabo=" + leLabo + '}';
+    }
+
 }
