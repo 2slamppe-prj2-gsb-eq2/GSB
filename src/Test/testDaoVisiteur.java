@@ -36,7 +36,6 @@ public class testDaoVisiteur {
      
       public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException, SQLException, DaoException, Exception {
         System.out.println("Tests unitaires DAO");
- 
         FabriqueJdbc.creer("gsbJdbc.properties") ;
         Jdbc.getInstance().connecter();
         System.out.println("Test 1 : Selection d'un visiteur\n\r ") ;

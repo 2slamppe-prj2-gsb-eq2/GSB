@@ -27,9 +27,9 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String>{
     public Visiteur getOne(String matricule) throws Exception {
         Visiteur result = null;
         ResultSet rs = null;
-        // préparer la requête
+      
         System.out.println(matricule) ;
-        String requete = "SELECT * FROM VISITEUR WHERE VIS_MATRICULE = 'a131'";
+        String requete = "SELECT * FROM VISITEUR WHERE VIS_MATRICULE = ?";
         System.out.println(requete) ;
         try {
             PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
@@ -76,6 +76,7 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String>{
      */
     private Visiteur chargerUnEnregistrement(ResultSet rs) throws DaoException {
         try {
+            System.out.println(rs) ;
             Visiteur visiteur = new Visiteur();
             visiteur.setMatricule(rs.getString("VIS_MATRICULE"));
             visiteur.setNom(rs.getString("VIS_NOM"));
@@ -83,6 +84,9 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String>{
             visiteur.setAdresse(rs.getString("VIS_PRENOM"));
             visiteur.setCp(rs.getString("VIS_CP"));
             visiteur.setVille(rs.getString("VIS_VILLE"));
+            visiteur.setDateEmbauche(rs.getDate("VIS_DATEEMBAUCHE"));
+            
+            System.out.println(visiteur) ;
             return visiteur;
         } catch (SQLException ex) {
             throw new DaoException("DaoEquipier - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());

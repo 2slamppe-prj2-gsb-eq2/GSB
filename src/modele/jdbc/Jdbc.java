@@ -36,7 +36,7 @@ public class Jdbc implements JdbcInterface {
      * @param login : utilisateur autorisé du SGBD (ou schéma Oracle)
      * @param mdp : son mot de passe
      */
-    private Jdbc(String pilote, String protocole, String serveur, String base, String login, String mdp) {
+    public Jdbc(String pilote, String protocole, String serveur, String base, String login, String mdp) {
         this.piloteJdbc = pilote;
         this.protocoleJdbc = protocole;
         this.serveurBd = serveur;
