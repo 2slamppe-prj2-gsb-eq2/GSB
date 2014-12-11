@@ -78,7 +78,7 @@ public class DaoVisiteur implements DaoInterface<Visiteur, String>{
             Visiteur visiteur = new Visiteur();
             visiteur.setMatricule(rs.getString("VIS_MATRICULE"));
             visiteur.setNom(rs.getString("VIS_NOM"));
-            visiteur.setPrenom(rs.getString("Vis_PRENOM"));
+            visiteur.setPrenom(rs.getString("VIS_PRENOM"));
             visiteur.setAdresse(rs.getString("VIS_PRENOM"));
             visiteur.setCp(rs.getString("VIS_CP"));
             visiteur.setVille(rs.getString("VIS_VILLE"));
