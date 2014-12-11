@@ -6,8 +6,10 @@
 
 package controleur;
 
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JOptionPane;
+import modele.dao.DaoException;
 //import modele.dao.*;
 //import modele.metier.*;
 import vue.VueVisiteur;
@@ -29,7 +31,12 @@ public class CtrlVisiteur extends CtrlAbstrait {
     public VueVisiteur getVue() {
         return (VueVisiteur) vue;
     }
+    
+    private void chargerListeEquipiers() throws DaoException {
+      
+        }
+    }
 
  
     
-}
+

@@ -45,7 +45,7 @@ public class VueVisiteur extends  VueAbstraite {
         villeLabel = new javax.swing.JLabel();
         secteurLabel = new javax.swing.JLabel();
         laboLabel = new javax.swing.JLabel();
-        cherherCombo = new javax.swing.JComboBox();
+        chercherCombo = new javax.swing.JComboBox();
         chercherButton = new javax.swing.JButton();
         nomText = new javax.swing.JTextField();
         prenomText = new javax.swing.JTextField();
@@ -93,7 +93,12 @@ public class VueVisiteur extends  VueAbstraite {
         laboLabel.setText("LABO :");
         getContentPane().add(laboLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 250, -1, -1));
 
-        getContentPane().add(cherherCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 108, 144, -1));
+        chercherCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chercherComboActionPerformed(evt);
+            }
+        });
+        getContentPane().add(chercherCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 108, 144, -1));
 
         chercherButton.setText("Ok");
         chercherButton.addActionListener(new java.awt.event.ActionListener() {
@@ -178,6 +183,10 @@ public class VueVisiteur extends  VueAbstraite {
     this.setVisible(false) ;
     }//GEN-LAST:event_fermerButtonActionPerformed
 
+    private void chercherComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherComboActionPerformed
+            
+    }//GEN-LAST:event_chercherComboActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel adresseLabel;
@@ -186,8 +195,8 @@ public class VueVisiteur extends  VueAbstraite {
     private javax.swing.JLabel cdpLabel;
     private javax.swing.JTextField cdpText;
     private javax.swing.JButton chercherButton;
+    private javax.swing.JComboBox chercherCombo;
     private javax.swing.JLabel chercherLabel;
-    private javax.swing.JComboBox cherherCombo;
     private javax.swing.JButton fermerButton;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox laboCombo;

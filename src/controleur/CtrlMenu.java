@@ -1,4 +1,4 @@
-package controleur;
+ package controleur;
 
 import javax.swing.JOptionPane;
 import vue.VueMenu;
