@@ -56,7 +56,7 @@ public class VueVisiteur extends  VueAbstraite {
         cdpText = new javax.swing.JTextField();
         cdpLabel = new javax.swing.JLabel();
         precedentButton = new javax.swing.JButton();
-        suiventButton = new javax.swing.JButton();
+        suivantButton = new javax.swing.JButton();
         fermerButton = new javax.swing.JButton();
 
         jButton3.setText("jButton3");
@@ -142,13 +142,13 @@ public class VueVisiteur extends  VueAbstraite {
         });
         getContentPane().add(precedentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(417, 347, -1, -1));
 
-        suiventButton.setText("Suivant");
-        suiventButton.addActionListener(new java.awt.event.ActionListener() {
+        suivantButton.setText("Suivant");
+        suivantButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                suiventButtonActionPerformed(evt);
+                suivantButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(suiventButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(553, 347, -1, -1));
+        getContentPane().add(suivantButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(553, 347, -1, -1));
 
         fermerButton.setText("Fermer");
         fermerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -171,9 +171,9 @@ public class VueVisiteur extends  VueAbstraite {
         // TODO add your handling code here:
     }//GEN-LAST:event_prenomTextActionPerformed
 
-    private void suiventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suiventButtonActionPerformed
+    private void suivantButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suivantButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_suiventButtonActionPerformed
+    }//GEN-LAST:event_suivantButtonActionPerformed
 
     private void precedentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precedentButtonActionPerformed
         // TODO add your handling code here:
@@ -203,12 +203,12 @@ public class VueVisiteur extends  VueAbstraite {
     private javax.swing.JLabel laboLabel;
     private javax.swing.JLabel nomLabel;
     public javax.swing.JTextField nomText;
-    private javax.swing.JButton precedentButton;
+    public javax.swing.JButton precedentButton;
     private javax.swing.JLabel prenomLabel;
     public javax.swing.JTextField prenomText;
     public javax.swing.JComboBox secteurCombo;
     private javax.swing.JLabel secteurLabel;
-    private javax.swing.JButton suiventButton;
+    public javax.swing.JButton suivantButton;
     private javax.swing.JLabel villeLabel;
     public javax.swing.JTextField villeText;
     private javax.swing.JLabel visiteurLabel;
