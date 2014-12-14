@@ -8,6 +8,8 @@ package vue;
 
 import controleur.CtrlAbstrait;
 import controleur.CtrlMenu;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -123,7 +125,11 @@ public class VueMenu extends  VueAbstraite {
     }//GEN-LAST:event_jButtonQuitterActionPerformed
 
     private void jButtonVisitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVisitActionPerformed
-((CtrlMenu)controleur).visiteur();       // TODO add your handling code here:
+        try {
+            ((CtrlMenu)controleur).visiteur();       // TODO add your handling code here:
+        } catch (Exception ex) {
+            Logger.getLogger(VueMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonVisitActionPerformed
 
     /**

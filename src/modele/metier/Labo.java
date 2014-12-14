@@ -1,18 +1,15 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this template, choose Tools | Templates
+* and open the template in the editor.
+*/
 package modele.metier;
 
-
-
 /**
- *
- * @author btssio
- */
-public class Labo  {
-
+*
+* @author btssio
+*/
+public class Labo {
+    
     private String code;
     private String nom;
     private String chefVente;
@@ -22,13 +19,14 @@ public class Labo  {
         this.nom = nom;
         this.chefVente = chefVente;
     }
-    public Labo()
-    {
-        super() ;
+    
+    public Labo() {
+        this.code = "";
+        this.nom = "";
+        this.chefVente = "";
     }
     
-
-    public String getCode() {
+      public String getCode() {
         return code;
     }
 
@@ -54,9 +52,9 @@ public class Labo  {
 
     @Override
     public String toString() {
-        return "Labo{" + "code=" + code + ", nom=" + nom + ", chefVente=" + chefVente + '}';
+        return nom ;
     }
     
     
-
+    
 }

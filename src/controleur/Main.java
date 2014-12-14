@@ -13,7 +13,7 @@ import modele.jdbc.Jdbc;
 /**
  * GSB
  *
- * @version v2 21 novembre 2013
+ * @version v2 11 décembre 2014
  * @author Groupe2 
  * Objectif : 
  * - exemple de dynamique Vue/Controleur avec controleur principal
@@ -28,7 +28,8 @@ public class Main {
      */
     public static void main(String[] args)  {
 
-        String ficPropertiesJdbc ="gsbJdbc.properties" ; // nom du fichier de properties
+        String ficPropertiesJdbc ="gsbJdbc.properties" ;       // nom du fichier de properties SERVEUR DISTANT
+       // String ficPropertiesJdbc ="gsbJdbcLocal.properties" ;    //nom du fichier de properties SERVEUR LOCAL
         Properties propertiesJdbc;                              // objet de propriétés (paramètres de l'appplication) pour Jdbc
         FileInputStream input;                                  // flux de lecture des properties
         CtrlPrincipal ctrlPrincipal;                                  // référence vers le contrôleur principal

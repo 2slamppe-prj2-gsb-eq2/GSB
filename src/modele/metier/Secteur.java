@@ -1,6 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package modele.metier;
@@ -10,13 +9,17 @@ package modele.metier;
  * @author btssio
  */
 public class Secteur {
-
     private String code;
-    private String libelle;
+    private String libelle ;
 
     public Secteur(String code, String libelle) {
         this.code = code;
         this.libelle = libelle;
+    }
+
+    @Override
+    public String toString() {
+        return libelle;
     }
 
     public String getCode() {
@@ -34,5 +37,5 @@ public class Secteur {
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
-
+    
 }

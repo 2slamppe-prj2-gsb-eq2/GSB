@@ -8,8 +8,8 @@ import vue.VueAbstraite;
  * chaque contrôleur possède :
  * - une vue
  * - une liaison vers le contrôleur principal
- * @author nbourgeois
- * @version 22 novembre 2013
+ * @author SLAM-equipe
+ * @version 11 décembre 2014
  */
 public abstract class CtrlAbstrait {
     

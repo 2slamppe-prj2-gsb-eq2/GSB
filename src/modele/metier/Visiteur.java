@@ -1,29 +1,25 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package modele.metier;
-
-import java.util.*;
 
 /**
  *
  * @author btssio
  */
 public class Visiteur {
-
     private String matricule;
     private String nom;
     private String prenom;
     private String adresse;
     private String cp;
     private String ville;
-    private Date dateEmbauche;
-    private Secteur leSecteur;
-    private Labo leLabo;
+    private String dateEmbauche;
+    private Secteur secteur;
+    private Labo labo;
 
-    public Visiteur(String matricule, String nom, String prenom, String adresse, String cp, String ville, Date dateEmbauche, Secteur leSecteur, Labo leLabo) {
+    public Visiteur(String matricule, String nom, String prenom, String adresse, String cp, String ville, String dateEmbauche, Secteur secteur, Labo labo) {
         this.matricule = matricule;
         this.nom = nom;
         this.prenom = prenom;
@@ -31,12 +27,13 @@ public class Visiteur {
         this.cp = cp;
         this.ville = ville;
         this.dateEmbauche = dateEmbauche;
-        this.leSecteur = leSecteur;
-        this.leLabo = leLabo;
+        this.secteur = secteur;
+        this.labo = labo;
     }
 
-    public Visiteur() {
-        super();
+    @Override
+    public String toString() {
+        return  nom + " " + prenom;
     }
 
     public String getMatricule() {
@@ -87,41 +84,28 @@ public class Visiteur {
         this.ville = ville;
     }
 
-    public Date getDateEmbauche() {
+    public String getDateEmbauche() {
         return dateEmbauche;
     }
 
-    public void setDateEmbauche(Date dateEmbauche) {
+    public void setDateEmbauche(String dateEmbauche) {
         this.dateEmbauche = dateEmbauche;
     }
 
-    public Secteur getLeSecteur() {
-        return leSecteur;
+    public Secteur getSecteur() {
+        return secteur;
     }
 
-    public void setLeSecteur(Secteur leSecteur) {
-        this.leSecteur = leSecteur;
+    public void setSecteur(Secteur secteur) {
+        this.secteur = secteur;
     }
 
-    public Labo getLeLabo() {
-        return leLabo;
+    public Labo getLabo() {
+        return labo;
     }
 
-    public void setLeLabo(Labo leLabo) {
-        this.leLabo = leLabo;
-    }
-    
-        public String versChaine() {
-        String resu = "";
-        resu += "Visiteur{" + "matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse;
-        resu += "cp "+cp+" ,ville"+ville ;    
-        resu += '}';
-        return resu;
-    }
-
-    @Override
-    public String toString() {
-        return "Visiteur{" + "matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", cp=" + cp + ", ville=" + ville + ", dateEmbauche=" + dateEmbauche + ", leSecteur=" + leSecteur + ", leLabo=" + leLabo + '}';
+    public void setLabo(Labo labo) {
+        this.labo = labo;
     }
 
 }

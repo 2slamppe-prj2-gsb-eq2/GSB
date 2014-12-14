@@ -5,7 +5,7 @@ package controleur;
  * Règles de nommage pour ajouter une action :
  * - en majuscules
  * - le nom du contrôleur suivi d'un tiret bas et du nom de l'action pour ce contrôleur
- * @author btssio
+ * @author SLAM-equipe2
  */
 public enum EnumAction {
     MENU_VISITEUR

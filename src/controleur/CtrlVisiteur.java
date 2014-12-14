@@ -1,238 +1,139 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package controleur;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import modele.dao.DaoException;
-import modele.dao.DaoLabo;
-import modele.dao.DaoVisiteur;
-import modele.metier.Labo;
-import modele.metier.Visiteur;
+import javax.swing.JOptionPane;
+import modele.dao.*;
+import modele.metier.*;
 import vue.VueVisiteur;
 
-
-/**
- *
- * @author équipe2
- */
 public class CtrlVisiteur extends CtrlAbstrait {
-
-     static DaoVisiteur daoVisiteur = new DaoVisiteur();
-     static DaoLabo daoLabo = new DaoLabo() ;
-     private List<Labo> lesLabos;
-     private int indiceVisiteurCourant ;
-     private Visiteur unVisiteur ;
-     
     
-     
-    //private List<Secteur> lesSecteurs;
-     
+   private final DaoVisiteur daoVisiteur = new DaoVisiteur();
+   private final DaoLabo daoLabo = new DaoLabo();
+   private final DaoSecteur daoSecteur = new DaoSecteur() ;
+
+
     public CtrlVisiteur(CtrlPrincipal ctrlPrincipal) throws Exception {
         super(ctrlPrincipal);
-        vue = new  VueVisiteur(this);
-        chargerListeVisiteurs() ;
-        search() ;
-         
-        
-        lesLabos = daoLabo.getAll();
-        afficherListeLabo(lesLabos);
-        
-        suivant() ;
-        precedent() ;
-  
-        
+        vue = new VueVisiteur(this);
+        actualiser();
+    }
+
+    public final void actualiser() throws Exception {
+        try {
+            chargerListeVisiteur();
+            chargerListeLabo();
+            chargerListeSecteur() ;
+        } catch (DaoException ex) {
+            JOptionPane.showMessageDialog(getVue(), "CtrlVisiteur - actualiser - " + ex.getMessage(), " Liste des visiteurs ", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+   
+
+    /**
+     * presenceAnnuler réaction au clic sur le bouton ANNULER de la vue Le
+     * contrôle est rendu au contrôleur fronta
+     * @throws java.lang.Exception
+     */
+    public void visiteurQuitter() throws Exception {
+        this.getCtrlPrincipal().action(EnumAction.VISITEUR_RETOUR);
+    }
+   /**Bouton suivant. rajoute +1 a chaque utilisateur 
+    * 
+    */
+    public void visiteurSuivant(){
+        int index = getVue().chercherCombo.getSelectedIndex()+1;
+        if(index== getVue().chercherCombo.getItemCount())
+        {
+            index=0;
+        }
+        getVue().chercherCombo.setSelectedIndex(index);
     }
     
-    
+    /**
+     Bouton précédent enleve -1 a chaque utilisateur
+     */
+    public void visiteurPrecedent(){
+        int index = getVue().chercherCombo.getSelectedIndex()-1;
+        if(index== -1)
+        {
+            index=getVue().chercherCombo.getItemCount() -1;
+        }
+        getVue().chercherCombo.setSelectedIndex(index);
+    }
+    /**
+     * chargerListeVisiteur renseigner le modèle du composant chercherCombo
+     * à partir de la base de données
+     *
+     * @throws DaoException
+     */
+    private void chargerListeVisiteur() throws DaoException, Exception {
+        List<Visiteur> desVisiteurs = daoVisiteur.getAll();
+        getVue().chercherCombo.removeAll();
+        for (Visiteur unVisiteur : desVisiteurs) {
+            getVue().chercherCombo.addItem(unVisiteur);
+        }
+    }
     /**
      * 
-     * FOnction qui charge tous les visiteurs de la base de donnée
-     * @return liste des visiteurs
+     * Charger la liste des labo relatif à la base de donnée
      * @throws DaoException
      * @throws Exception 
      */
-    
-    private ArrayList<Visiteur> chargerListeVisiteurs() throws DaoException, Exception {
-       ArrayList<Visiteur> lesVisiteurs = new ArrayList<Visiteur>();
-        lesVisiteurs = daoVisiteur.getAll();
-         getVue().chercherCombo.removeAllItems();
-        for(int i=0; i<lesVisiteurs.size(); i++)
-        {
-            getVue().chercherCombo.addItem(lesVisiteurs.get(i).getNom()+" "+lesVisiteurs.get(i).getPrenom()) ;
+        private void chargerListeLabo() throws DaoException, Exception {
+        List<Labo> desLabos = daoLabo.getAll();
+        getVue().laboCombo.removeAll();
+        for (Labo unLabo : desLabos) {
+            getVue().laboCombo.addItem(unLabo);
         }
-        return lesVisiteurs ;
+    }
+        /**
+         * 
+         * 
+         * Charge la liste des Secteur relatif à la base de donnée
+         * @throws DaoException 
+         */
+        
+        private void chargerListeSecteur() throws DaoException {
+        List<Secteur> desSecteurs = daoSecteur.getAll();
+        getVue().secteurCombo.removeAll();
+        for (Secteur unSecteur : desSecteurs) {
+            getVue().secteurCombo.addItem(unSecteur);
         }
-    
-    /***
-     * 
-     * Affiche la liste des labos
-     * @param lesLabos 
-     */
-    
-    private void afficherListeLabo(List<Labo> lesLabos)
-    {
-        getVue().laboCombo.removeAllItems();
-        getVue().laboCombo.addItem("aucun");
-        for(int i=0; i<lesLabos.size(); i++ ){
-            getVue().laboCombo.addItem(lesLabos.get(i).getNom());
-        }
-     } 
-    
+    }
     /**
+     * Affiche les détails du visiteur selectionnée dans la comboBox recherche
      * 
-     * Fonction qui affiche le visiteur courant dans la Jcombobox 
-     * @return String qui est le nom et prénom du visiteur courant concaténé
      */
-    private String afficherVisiteurCourant()
-    {
-        
-         String leVisiteur = getVue().chercherCombo.getSelectedItem().toString();
-         String string = leVisiteur;
-         
-         return string ;
-    }
-    
-    
-    /***
-     ** Affiche les détails du visiteurs en fonction du visiteurs courant
-     ** afficher dans la combo box
-     ** lors de l'évenement
-     ** du clique du bouton ok
-     * 
-     **/
-    
-    private void search() 
-    {
+    public void visiteurSelectionner (){
+        Visiteur visiteurSelect = (Visiteur) getVue().chercherCombo.getSelectedItem();
+        getVue().nomText.setText(visiteurSelect.getNom());
+        getVue().prenomText.setText(visiteurSelect.getPrenom());
+        getVue().adresseText.setText(visiteurSelect.getAdresse());
+        getVue().villeText.setText(visiteurSelect.getVille());
+        getVue().cdpText.setText(visiteurSelect.getCp());
+        getVue().secteurCombo.setSelectedItem(visiteurSelect.getSecteur());
+        getVue().laboCombo.setSelectedItem(visiteurSelect.getLabo().getNom());
+        String labo = visiteurSelect.getLabo().getNom() ;
+        System.out.print("Labo avec methode getNom()"+labo);
+        System.out.println("Labo sans methode getNom()"+visiteurSelect.getLabo()) ;
        
-   
-       getVue().chercherButton.addActionListener(new ActionListener() {
-            private Visiteur unVisiteur;
-            String visitCourant ;
-            Labo unLab ;
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                
-             visitCourant = afficherVisiteurCourant() ;
-             String[] parts = visitCourant.split(" ");
-             String nom = parts[0]; 
-             String prenom = parts[1]; 
-             try {
-                 unVisiteur = daoVisiteur.getByName(nom, prenom) ;
-             } catch (Exception ex) {
-                 Logger.getLogger(CtrlVisiteur.class.getName()).log(Level.SEVERE, null, ex);
-             }                            
-                getVue().nomText.setText(unVisiteur.getNom());
-                getVue().prenomText.setText(unVisiteur.getPrenom());
-                getVue().adresseText.setText(unVisiteur.getAdresse());
-                getVue().villeText.setText(unVisiteur.getVille());
-                getVue().cdpText.setText(unVisiteur.getCp());
-                getVue().laboCombo.setSelectedItem(unVisiteur.getLeLabo());
-                
-                
-                        
-            }
-        });
-    }
-    
-    /***
-     * Affiche le visiteur suivant lors de l'évenement du clique sur 
-     * le bouton suivant
-     * @throws Exception 
-     */
-    
-    private void suivant() throws Exception
-    {
-               
-       getVue().suivantButton.addActionListener(new ActionListener() {
-       public void actionPerformed(ActionEvent e) {
-            indiceVisiteurCourant = getVue().chercherCombo.getSelectedIndex() ;
-             ArrayList<Visiteur> lesVisiteurs = new ArrayList<Visiteur>();
-           try {
-               lesVisiteurs = chargerListeVisiteurs() ;
-           } catch (Exception ex) {
-               Logger.getLogger(CtrlVisiteur.class.getName()).log(Level.SEVERE, null, ex);
-           }
-            indiceVisiteurCourant = indiceVisiteurCourant + 1;
-              if (indiceVisiteurCourant>lesVisiteurs.size()-1) {
-                    indiceVisiteurCourant=0;
-                }
-             String leVisiteur = getVue().chercherCombo.getItemAt(indiceVisiteurCourant).toString();
-             String visitNext = leVisiteur;
-             String[] parts = visitNext.split(" ");
-             String nom = parts[0]; 
-             String prenom = parts[1]; 
-             try {
-                 unVisiteur = daoVisiteur.getByName(nom, prenom) ;
-             } catch (Exception ex) {
-                 Logger.getLogger(CtrlVisiteur.class.getName()).log(Level.SEVERE, null, ex);
-             }          
-                getVue().chercherCombo.setSelectedIndex(indiceVisiteurCourant);
-                getVue().nomText.setText(unVisiteur.getNom());
-                getVue().prenomText.setText(unVisiteur.getPrenom());
-                getVue().adresseText.setText(unVisiteur.getAdresse());
-                getVue().villeText.setText(unVisiteur.getVille());
-                getVue().cdpText.setText(unVisiteur.getCp());
-                getVue().laboCombo.setSelectedItem(unVisiteur.getLeLabo());
-       }
-    });
-    }
-    
-  /***
-   * Affiche le visiteur précédent lors de l'évenement du clique sur 
-   * le bouton précédent 
-   */
-    
-    private void precedent()
-    {
-         getVue().precedentButton.addActionListener(new ActionListener() {
-       public void actionPerformed(ActionEvent e) {
-            indiceVisiteurCourant = getVue().chercherCombo.getSelectedIndex() ;
-             ArrayList<Visiteur> lesVisiteurs = new ArrayList<Visiteur>();
-           try {
-               lesVisiteurs = chargerListeVisiteurs() ;
-           } catch (Exception ex) {
-               Logger.getLogger(CtrlVisiteur.class.getName()).log(Level.SEVERE, null, ex);
-           }
-            indiceVisiteurCourant = indiceVisiteurCourant - 1;
-              if (indiceVisiteurCourant<0) {
-                     indiceVisiteurCourant=lesVisiteurs.size()-1;
-                }
-             String leVisiteur = getVue().chercherCombo.getItemAt(indiceVisiteurCourant).toString();
-             String visitNext = leVisiteur;
-             String[] parts = visitNext.split(" ");
-             String nom = parts[0]; 
-             String prenom = parts[1]; 
-             try {
-                 unVisiteur = daoVisiteur.getByName(nom, prenom) ;
-             } catch (Exception ex) {
-                 Logger.getLogger(CtrlVisiteur.class.getName()).log(Level.SEVERE, null, ex);
-             }          
-                getVue().chercherCombo.setSelectedIndex(indiceVisiteurCourant);
-                getVue().nomText.setText(unVisiteur.getNom());
-                getVue().prenomText.setText(unVisiteur.getPrenom());
-                getVue().adresseText.setText(unVisiteur.getAdresse());
-                getVue().villeText.setText(unVisiteur.getVille());
-                getVue().cdpText.setText(unVisiteur.getCp());
-                getVue().laboCombo.setSelectedItem(unVisiteur.getLeLabo());
-       }
-    });
         
     }
+    /**
+     * Charge la vue visiteur
+     *
+     * @throws DaoException
+     */
     
- @Override
+    @Override
     public VueVisiteur getVue() {
         return (VueVisiteur) vue;
     }
-}
-    
 
+   
+
+   
+    
+}

@@ -8,6 +8,9 @@ package vue;
 
 import controleur.CtrlAbstrait;
 import controleur.CtrlMenu;
+import controleur.CtrlVisiteur;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -107,16 +110,27 @@ public class VueVisiteur extends  VueAbstraite {
             }
         });
         getContentPane().add(chercherButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(622, 107, -1, -1));
+
+        nomText.setEditable(false);
+        nomText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomTextActionPerformed(evt);
+            }
+        });
         getContentPane().add(nomText, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 245, 226, -1));
 
+        prenomText.setEditable(false);
         prenomText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 prenomTextActionPerformed(evt);
             }
         });
         getContentPane().add(prenomText, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 286, 226, -1));
+
+        adresseText.setEditable(false);
         getContentPane().add(adresseText, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 326, 226, -1));
 
+        villeText.setEditable(false);
         villeText.setToolTipText("");
         getContentPane().add(villeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 366, 226, -1));
 
@@ -124,6 +138,7 @@ public class VueVisiteur extends  VueAbstraite {
 
         getContentPane().add(laboCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 245, 150, -1));
 
+        cdpText.setEditable(false);
         cdpText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cdpTextActionPerformed(evt);
@@ -172,20 +187,28 @@ public class VueVisiteur extends  VueAbstraite {
     }//GEN-LAST:event_prenomTextActionPerformed
 
     private void suivantButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suivantButtonActionPerformed
-        // TODO add your handling code here:
+((CtrlVisiteur)controleur).visiteurSuivant();        // TODO add your handling code here:
     }//GEN-LAST:event_suivantButtonActionPerformed
 
     private void precedentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precedentButtonActionPerformed
-        // TODO add your handling code here:
+    ((CtrlVisiteur)controleur).visiteurPrecedent();     
     }//GEN-LAST:event_precedentButtonActionPerformed
 
     private void fermerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fermerButtonActionPerformed
-    this.setVisible(false) ;
+        try {
+            ((CtrlVisiteur)controleur).visiteurQuitter();
+        } catch (Exception ex) {
+            Logger.getLogger(VueVisiteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_fermerButtonActionPerformed
 
     private void chercherComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherComboActionPerformed
-            
+            ((CtrlVisiteur)controleur).visiteurSelectionner();
     }//GEN-LAST:event_chercherComboActionPerformed
+
+    private void nomTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomTextActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

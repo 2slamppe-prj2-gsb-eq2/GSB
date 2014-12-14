@@ -5,8 +5,8 @@ import vue.VueMenu;
 
 /**
  * Contrôleur de la fenêtre VueMenu
- * @author nbourgeois
- * @version 1 20 novembre 2013
+ * @author SLAM-groupe2
+ * @version 1 11 novembre 2014
  */
 
 public class CtrlMenu extends CtrlAbstrait {

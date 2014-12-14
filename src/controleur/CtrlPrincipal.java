@@ -1,6 +1,6 @@
- package controleur;
+package controleur;
 
-
+import static controleur.EnumAction.*;
 import javax.swing.JOptionPane;
 import modele.jdbc.Jdbc;
 
@@ -28,11 +28,11 @@ public class CtrlPrincipal {
 
     public void action(EnumAction action) throws Exception {
         switch (action) {
-            case MENU_VISITEUR: // activation de vuePresence depuis vueMenu
+            case MENU_VISITEUR: // activation de vueVisiteur depuis vueMenu
                 menuVisiteur();
                 break;
-            case VISITEUR_RETOUR:    // retour à vueMenu depuis la vuePresence
-                presenceQuitter();
+            case VISITEUR_RETOUR:    // retour à vueMenu depuis la vueVisiteur
+                visiteurQuitter();
                 break;
             case MENU_FICHIER_QUITTER: // fin de l'application depuis vueMenu
                 menuFichierQuitter();
@@ -56,7 +56,7 @@ public class CtrlPrincipal {
     }
 
     /**
-     * Transition vueMenu / vuePresence
+     * Transition vueMenu / vueVisiteur
      */
     private void menuVisiteur() throws Exception {
         if (ctrlVisiteur == null) {
@@ -64,18 +64,18 @@ public class CtrlPrincipal {
         } else {
             // si la le contrôleur et sa vue existent déjà
             // il faut rafraîchir le contenu à partir de la base de données
-            //ctrlVisiteur.actualiser();
+            ctrlVisiteur.actualiser();
         }
-        // vuPresence est une fenêtre modale :
+        // vuVisiteur est une fenêtre modale :
         // -> vueMenu reste visible, mais n'est pas active
         ctrlMenu.getVue().setEnabled(false);
         ctrlVisiteur.getVue().setVisible(true);
     }
 
     /**
-     * Transition vuePresence / vueMenu
+     * Transition vueVisiteur / vueMenu
      */
-    private void presenceQuitter() {
+    private void visiteurQuitter() {
         if (ctrlMenu == null) {
             ctrlMenu = new CtrlMenu(this);
         }

@@ -6,18 +6,18 @@ import java.sql.*;
 import java.util.*;
 
 /**
- * Classe DAO pour la classe Labo
+ * Classe DAO pour la classe Secteur
  *
  * @version 22 novembre 2013
  * @author nbourgeois
  */
-public class DaoLabo implements DaoInterface<Labo, String> {
+public class DaoSecteur implements DaoInterface<Secteur, String> {
 
     /**
      * Non implémenté
      */
     @Override
-    public int create(Labo unLabo) throws Exception {
+    public int create(Secteur unSecteur) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -29,47 +29,47 @@ public class DaoLabo implements DaoInterface<Labo, String> {
      * @throws Exception
      */
     @Override
-    public Labo getOne(String labCode) throws DaoException {
-        Labo result = null;
+    public Secteur getOne(String secCode) throws DaoException {
+        Secteur result = null;
         ResultSet rs = null;
         // préparer la requête
-        String requete = "SELECT * FROM LABO WHERE LAB_CODE=?";
+        String requete = "SELECT * FROM SECTEUR WHERE SEC_CODE=?";
         try {
             PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
-            ps.setString(1, labCode);
+            ps.setString(1, secCode);
             rs = ps.executeQuery();
             if (rs.next()) {
                 result = chargerUnEnregistrement(rs);
             }
         } catch (SQLException ex) {
-            throw new modele.dao.DaoException("DaoLabo::getOne : erreur requete SELECT : " + ex.getMessage());
+            throw new modele.dao.DaoException("DaoSecteur::getOne : erreur requete SELECT : " + ex.getMessage());
         }
         return (result);
     }
-
+   
 
     /**
      * getAll
      *
-     * @return ArrayList de l'ensemble des occurences d'labos de la table
-     * LABO
+     * @return ArrayList de l'ensemble des occurences d'secteurs de la table
+     * SECTEUR
      */
     @Override
-    public ArrayList<Labo> getAll() throws DaoException {
-        ArrayList<Labo> result = new ArrayList<Labo>();
+    public ArrayList<Secteur> getAll() throws DaoException {
+        ArrayList<Secteur> result = new ArrayList<Secteur>();
         ResultSet rs;
         // préparer la requête
-        String requete = "SELECT * FROM LABO";
+        String requete = "SELECT * FROM SECTEUR";
         try {
             PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
             rs = ps.executeQuery();
             // Charger les enregistrements dans la collection
             while (rs.next()) {
-                Labo unLabo = chargerUnEnregistrement(rs);
-                result.add(unLabo);
+                Secteur unSecteur = chargerUnEnregistrement(rs);
+                result.add(unSecteur);
             }
         } catch (SQLException ex) {
-            throw new modele.dao.DaoException("DaoLabo::getAll : erreur requete SELECT : " + ex.getMessage());
+            throw new modele.dao.DaoException("DaoSecteur::getAll : erreur requete SELECT : " + ex.getMessage());
         }
         return result;
     }
@@ -78,7 +78,7 @@ public class DaoLabo implements DaoInterface<Labo, String> {
      * Non implémenté
      */
     @Override
-    public int update(String idMetier, Labo objetMetier) throws Exception {
+    public int update(String idMetier, Secteur objetMetier) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -94,26 +94,24 @@ public class DaoLabo implements DaoInterface<Labo, String> {
     //  Méthodes privées
     //----------------------------------------------------------------------
     /**
-     * chargerUnEnregistrementLabo Instancie un objet labo avec les
+     * chargerUnEnregistrementSecteur Instancie un objet secteur avec les
      * valeurs lues dans la base de données La jointure avec la table PRESENCE
      * n'est pas effectuée
      *
-     * @param rs enregistrement de la table Labo courant
-     * @return un objet Labo, dont la liste des "présences" n'est pas
+     * @param rs enregistrement de la table Secteur courant
+     * @return un objet Secteur, dont la liste des "présences" n'est pas
      * renseignée
      * @throws DaoException
      */
-    private Labo chargerUnEnregistrement(ResultSet rs) throws DaoException {
+    private Secteur chargerUnEnregistrement(ResultSet rs) throws DaoException {
         try {
-            Labo labo = new Labo(null,null,null);
-            labo.setCode(rs.getString("LAB_CODE"));
-            labo.setNom(rs.getString("LAB_NOM"));
-           // labo.setChefvente(rs.getString("LAB_CHEFVENTE"));
-           
-           
-            return labo;
+            Secteur secteur = new Secteur(null,null);
+            secteur.setCode(rs.getString("SEC_CODE"));
+            secteur.setLibelle(rs.getString("SEC_LIBELLE"));
+            
+            return secteur;
         } catch (SQLException ex) {
-            throw new DaoException("DaoLabo - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());
+            throw new DaoException("DaoSecteur - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());
         }
     }
 }
