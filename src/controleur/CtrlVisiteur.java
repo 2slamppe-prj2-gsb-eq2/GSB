@@ -106,7 +106,7 @@ public class CtrlVisiteur extends CtrlAbstrait {
     }
         
     /**
-     * Affiche les détails du visiteur selectionnée dans la comboBox recherche
+     * Affiche les détails du visiteur courant selectionnée dans la comboBox recherche
      *
      */
     public void visiteurSelectionner (){
