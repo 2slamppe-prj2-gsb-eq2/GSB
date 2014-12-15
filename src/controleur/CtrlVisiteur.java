@@ -104,9 +104,10 @@ public class CtrlVisiteur extends CtrlAbstrait {
             getVue().secteurCombo.addItem(unSecteur.getLibelle());
         }
     }
+        
     /**
      * Affiche les détails du visiteur selectionnée dans la comboBox recherche
-     * 
+     * ok
      */
     public void visiteurSelectionner (){
         Visiteur visiteurSelect = (Visiteur) getVue().chercherCombo.getSelectedItem();
