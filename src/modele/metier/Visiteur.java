@@ -31,7 +31,14 @@ public class Visiteur {
         this.labo = labo;
     }
 
-    @Override
+    
+    public String toString2() {
+        return "Visiteur{" + "matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", cp=" + cp + ", ville=" + ville + ", dateEmbauche=" + dateEmbauche + ", secteur=" + secteur + ", labo=" + labo + '}';
+    }
+ 
+    
+    
+     @Override
     public String toString() {
         return  nom + " " + prenom;
     }

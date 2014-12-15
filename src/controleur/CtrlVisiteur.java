@@ -84,8 +84,9 @@ public class CtrlVisiteur extends CtrlAbstrait {
         private void chargerListeLabo() throws DaoException, Exception {
         List<Labo> desLabos = daoLabo.getAll();
         getVue().laboCombo.removeAll();
+         getVue().laboCombo.addItem("aucun");
         for (Labo unLabo : desLabos) {
-            getVue().laboCombo.addItem(unLabo);
+            getVue().laboCombo.addItem(unLabo.getNom());
         }
     }
         /**
@@ -98,8 +99,9 @@ public class CtrlVisiteur extends CtrlAbstrait {
         private void chargerListeSecteur() throws DaoException {
         List<Secteur> desSecteurs = daoSecteur.getAll();
         getVue().secteurCombo.removeAll();
+        getVue().secteurCombo.addItem("aucun");
         for (Secteur unSecteur : desSecteurs) {
-            getVue().secteurCombo.addItem(unSecteur);
+            getVue().secteurCombo.addItem(unSecteur.getLibelle());
         }
     }
     /**
@@ -113,11 +115,28 @@ public class CtrlVisiteur extends CtrlAbstrait {
         getVue().adresseText.setText(visiteurSelect.getAdresse());
         getVue().villeText.setText(visiteurSelect.getVille());
         getVue().cdpText.setText(visiteurSelect.getCp());
-        getVue().secteurCombo.setSelectedItem(visiteurSelect.getSecteur());
-        getVue().laboCombo.setSelectedItem(visiteurSelect.getLabo().getNom());
-        String labo = visiteurSelect.getLabo().getNom() ;
-        System.out.print("Labo avec methode getNom()"+labo);
-        System.out.println("Labo sans methode getNom()"+visiteurSelect.getLabo()) ;
+        
+         
+        Secteur secteur = visiteurSelect.getSecteur() ;
+        if(secteur != null)
+        {
+             getVue().secteurCombo.setSelectedItem(secteur.getLibelle());
+        } else 
+        {
+            getVue().secteurCombo.setSelectedItem("aucun");
+        }
+       
+        Labo labo = visiteurSelect.getLabo() ;
+        if(labo != null)
+        {
+            getVue().laboCombo.setSelectedItem(labo.getNom());
+        } else 
+        {
+             getVue().secteurCombo.setSelectedItem("aucun");
+        }
+        
+       
+      
        
         
     }

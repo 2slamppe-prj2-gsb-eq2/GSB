@@ -52,6 +52,11 @@ public class Labo {
 
     @Override
     public String toString() {
+        return "Labo{" + "code=" + code + ", nom=" + nom + ", chefVente=" + chefVente + '}';
+    }
+
+    
+    public String toString2() {
         return nom ;
     }
     

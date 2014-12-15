@@ -50,7 +50,6 @@ public class VueVisiteur extends  VueAbstraite {
         laboLabel = new javax.swing.JLabel();
         chercherCombo = new javax.swing.JComboBox();
         chercherButton = new javax.swing.JButton();
-        nomText = new javax.swing.JTextField();
         prenomText = new javax.swing.JTextField();
         adresseText = new javax.swing.JTextField();
         villeText = new javax.swing.JTextField();
@@ -61,12 +60,12 @@ public class VueVisiteur extends  VueAbstraite {
         precedentButton = new javax.swing.JButton();
         suivantButton = new javax.swing.JButton();
         fermerButton = new javax.swing.JButton();
+        nomText = new javax.swing.JTextField();
 
         jButton3.setText("jButton3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1226, 490));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vue/background.png"))); // NOI18N
@@ -111,14 +110,6 @@ public class VueVisiteur extends  VueAbstraite {
         });
         getContentPane().add(chercherButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(622, 107, -1, -1));
 
-        nomText.setEditable(false);
-        nomText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomTextActionPerformed(evt);
-            }
-        });
-        getContentPane().add(nomText, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 245, 226, -1));
-
         prenomText.setEditable(false);
         prenomText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,8 +125,18 @@ public class VueVisiteur extends  VueAbstraite {
         villeText.setToolTipText("");
         getContentPane().add(villeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 366, 226, -1));
 
+        secteurCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secteurComboActionPerformed(evt);
+            }
+        });
         getContentPane().add(secteurCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 286, 150, -1));
 
+        laboCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                laboComboActionPerformed(evt);
+            }
+        });
         getContentPane().add(laboCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 245, 150, -1));
 
         cdpText.setEditable(false);
@@ -155,7 +156,7 @@ public class VueVisiteur extends  VueAbstraite {
                 precedentButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(precedentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(417, 347, -1, -1));
+        getContentPane().add(precedentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, -1, -1));
 
         suivantButton.setText("Suivant");
         suivantButton.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +164,7 @@ public class VueVisiteur extends  VueAbstraite {
                 suivantButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(suivantButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(553, 347, -1, -1));
+        getContentPane().add(suivantButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, -1, -1));
 
         fermerButton.setText("Fermer");
         fermerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +172,15 @@ public class VueVisiteur extends  VueAbstraite {
                 fermerButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(fermerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(417, 400, 210, -1));
+        getContentPane().add(fermerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 210, -1));
+
+        nomText.setEditable(false);
+        nomText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomTextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(nomText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 226, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void chercherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherButtonActionPerformed
@@ -205,6 +214,14 @@ public class VueVisiteur extends  VueAbstraite {
     private void chercherComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherComboActionPerformed
             ((CtrlVisiteur)controleur).visiteurSelectionner();
     }//GEN-LAST:event_chercherComboActionPerformed
+
+    private void laboComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laboComboActionPerformed
+        
+    }//GEN-LAST:event_laboComboActionPerformed
+
+    private void secteurComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secteurComboActionPerformed
+      
+    }//GEN-LAST:event_secteurComboActionPerformed
 
     private void nomTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomTextActionPerformed
         // TODO add your handling code here:

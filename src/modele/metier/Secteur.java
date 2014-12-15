@@ -19,6 +19,12 @@ public class Secteur {
 
     @Override
     public String toString() {
+        return "Secteur{" + "code=" + code + ", libelle=" + libelle + '}';
+    }
+
+    
+  
+    public String toString2() {
         return libelle;
     }
 
