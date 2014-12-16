@@ -4,6 +4,8 @@
  */
 package modele.metier;
 
+import java.util.Date;
+
 /**
  *
  * @author btssio
@@ -15,11 +17,11 @@ public class Visiteur {
     private String adresse;
     private String cp;
     private String ville;
-    private String dateEmbauche;
+    private Date dateEmbauche;
     private Secteur secteur;
     private Labo labo;
 
-    public Visiteur(String matricule, String nom, String prenom, String adresse, String cp, String ville, String dateEmbauche, Secteur secteur, Labo labo) {
+    public Visiteur(String matricule, String nom, String prenom, String adresse, String cp, String ville, Date dateEmbauche, Secteur secteur, Labo labo) {
         this.matricule = matricule;
         this.nom = nom;
         this.prenom = prenom;
@@ -91,11 +93,11 @@ public class Visiteur {
         this.ville = ville;
     }
 
-    public String getDateEmbauche() {
+    public Date getDateEmbauche() {
         return dateEmbauche;
     }
 
-    public void setDateEmbauche(String dateEmbauche) {
+    public void setDateEmbauche(Date dateEmbauche) {
         this.dateEmbauche = dateEmbauche;
     }
 

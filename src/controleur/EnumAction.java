@@ -8,7 +8,9 @@ package controleur;
  * @author SLAM-equipe2
  */
 public enum EnumAction {
-    MENU_VISITEUR
+     AFFICHER_MENU
+    ,MENU_RETOUR
+    ,MENU_VISITEUR
     ,VISITEUR_RETOUR
     ,MENU_FICHIER_QUITTER
 }

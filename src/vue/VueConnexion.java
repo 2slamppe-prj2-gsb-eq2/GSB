@@ -6,17 +6,21 @@
 
 package vue;
 
+import controleur.CtrlAbstrait;
+
 /**
  *
  * @author btssio
  */
-public class VueAccueil extends javax.swing.JFrame {
+public class VueConnexion  extends  VueAbstraite {
 
     /**
      * Creates new form Accueil
      */
-    public VueAccueil() {
+    public VueConnexion(CtrlAbstrait ctrl) {
+        super(ctrl);
         initComponents();
+        this.setLocation(500, 200);
     }
 
     /**
@@ -30,11 +34,11 @@ public class VueAccueil extends javax.swing.JFrame {
 
         background = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        Text1 = new javax.swing.JTextField();
-        Text2 = new javax.swing.JTextField();
+        JtextLogin = new javax.swing.JTextField();
+        JTextMdp = new javax.swing.JTextField();
         IdentifiezVous = new javax.swing.JLabel();
-        ok = new javax.swing.JButton();
-        quit = new javax.swing.JButton();
+        JButtonConnexion = new javax.swing.JButton();
+        JButtonQuit = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -46,19 +50,19 @@ public class VueAccueil extends javax.swing.JFrame {
 
         IdentifiezVous.setText("Identifiez vous :");
 
-        ok.setText("C'est parti !");
+        JButtonConnexion.setText("Se connecter");
 
-        quit.setText("Quitter");
-        quit.addActionListener(new java.awt.event.ActionListener() {
+        JButtonQuit.setText("Quitter");
+        JButtonQuit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quitActionPerformed(evt);
+                JButtonQuitActionPerformed(evt);
             }
         });
-        quit.addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
+        JButtonQuit.addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
             public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
             }
             public void ancestorResized(java.awt.event.HierarchyEvent evt) {
-                quitAncestorResized(evt);
+                JButtonQuitAncestorResized(evt);
             }
         });
 
@@ -80,16 +84,16 @@ public class VueAccueil extends javax.swing.JFrame {
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(backgroundLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(quit))
+                                .addComponent(JButtonQuit))
                             .addGroup(backgroundLayout.createSequentialGroup()
                                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Text1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ok, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(Text2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(JtextLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JButtonConnexion, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(JTextMdp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(171, 171, 171))))
@@ -104,18 +108,18 @@ public class VueAccueil extends javax.swing.JFrame {
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(quit)
+                        .addComponent(JButtonQuit)
                         .addGap(0, 142, Short.MAX_VALUE))
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Text1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JtextLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Text2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTextMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
-                        .addComponent(ok)
+                        .addComponent(JButtonConnexion)
                         .addGap(350, 350, 350))))
         );
 
@@ -133,24 +137,24 @@ public class VueAccueil extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void quitAncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_quitAncestorResized
+    private void JButtonQuitAncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_JButtonQuitAncestorResized
         // TODO add your handling code here:
-    }//GEN-LAST:event_quitAncestorResized
+    }//GEN-LAST:event_JButtonQuitAncestorResized
 
-    private void quitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitActionPerformed
+    private void JButtonQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonQuitActionPerformed
     System.exit(0);        // TODO add your handling code here:
-    }//GEN-LAST:event_quitActionPerformed
+    }//GEN-LAST:event_JButtonQuitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IdentifiezVous;
-    private javax.swing.JTextField Text1;
-    private javax.swing.JTextField Text2;
+    public javax.swing.JButton JButtonConnexion;
+    public javax.swing.JButton JButtonQuit;
+    public javax.swing.JTextField JTextMdp;
+    public javax.swing.JTextField JtextLogin;
     private javax.swing.JPanel background;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JButton ok;
-    private javax.swing.JButton quit;
     // End of variables declaration//GEN-END:variables
 }

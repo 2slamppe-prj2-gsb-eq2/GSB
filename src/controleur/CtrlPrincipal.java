@@ -3,27 +3,31 @@ package controleur;
 import static controleur.EnumAction.*;
 import javax.swing.JOptionPane;
 import modele.jdbc.Jdbc;
+import vue.VueMenu;
+import controleur.CtrlAbstrait ;
 
 /**
  * Controleur principal (ou frontal) - un lien vers chaque contrôleur de base
  *
- * @author nbourgeois
- * @version 1 20 novembre 2013
+ * @author Equipe2-PPE
+ * @version 1 11/12/2014
  */
 public class CtrlPrincipal {
 
     private CtrlVisiteur ctrlVisiteur = null;
     private CtrlMenu ctrlMenu = null;
+    private CtrlConnexion ctrlConnexion = null ;
+    
 
     /**
      * action par défaut action au démarrage de l'application
      */
     public void action() {
-        if (ctrlMenu == null) {
-            ctrlMenu = new CtrlMenu(this);
+        if (ctrlConnexion == null) {
+            ctrlConnexion = new CtrlConnexion(this);
         }
-        ctrlMenu.getVue().setEnabled(true);
-        ctrlMenu.getVue().setVisible(true);
+        ctrlConnexion.getVue().setEnabled(true);
+        ctrlConnexion.getVue().setVisible(true);
     }
 
     public void action(EnumAction action) throws Exception {
@@ -31,6 +35,9 @@ public class CtrlPrincipal {
             case MENU_VISITEUR: // activation de vueVisiteur depuis vueMenu
                 menuVisiteur();
                 break;
+            case AFFICHER_MENU :
+                 afficherMenu() ;
+                 break ;
             case VISITEUR_RETOUR:    // retour à vueMenu depuis la vueVisiteur
                 visiteurQuitter();
                 break;
@@ -53,6 +60,22 @@ public class CtrlPrincipal {
         } finally {
             System.exit(0);
         }
+    }
+    
+     /**
+     * Transition vueMenu / vuePresence
+     */
+    private void afficherMenu() {
+        if (ctrlConnexion == null) {
+            ctrlConnexion = new CtrlConnexion(this);
+        }
+        
+        ctrlMenu = new CtrlMenu(this);
+        // vuPresence est une fenêtre modale :
+        // -> vueMenu reste visible, mais n'est pas active
+        ctrlConnexion.getVue().setEnabled(false);
+        ctrlConnexion.getVue().setVisible(false);
+        ctrlMenu.getVue().setVisible(true);
     }
 
     /**

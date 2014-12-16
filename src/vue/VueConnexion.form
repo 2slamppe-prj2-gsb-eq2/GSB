@@ -57,7 +57,7 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="quit" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JButtonQuit" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -66,9 +66,9 @@
                                   </Group>
                                   <EmptySpace pref="64" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="Text1" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
-                                      <Component id="ok" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Text2" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="JtextLogin" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
+                                      <Component id="JButtonConnexion" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="JTextMdp" alignment="1" min="-2" pref="133" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel1" min="-2" pref="336" max="-2" attributes="0"/>
@@ -90,21 +90,21 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel1" min="-2" pref="294" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="quit" min="-2" max="-2" attributes="0"/>
+                          <Component id="JButtonQuit" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="142" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Text1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="JtextLogin" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Text2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="JTextMdp" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="ok" min="-2" max="-2" attributes="0"/>
+                          <Component id="JButtonConnexion" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -120,28 +120,40 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Text1">
+        <Component class="javax.swing.JTextField" name="JtextLogin">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="Text2">
+        <Component class="javax.swing.JTextField" name="JTextMdp">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="IdentifiezVous">
           <Properties>
             <Property name="text" type="java.lang.String" value="Identifiez vous :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="ok">
+        <Component class="javax.swing.JButton" name="JButtonConnexion">
           <Properties>
-            <Property name="text" type="java.lang.String" value="C&apos;est parti !"/>
+            <Property name="text" type="java.lang.String" value="Se connecter"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="quit">
+        <Component class="javax.swing.JButton" name="JButtonQuit">
           <Properties>
             <Property name="text" type="java.lang.String" value="Quitter"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quitActionPerformed"/>
-            <EventHandler event="ancestorResized" listener="java.awt.event.HierarchyBoundsListener" parameters="java.awt.event.HierarchyEvent" handler="quitAncestorResized"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JButtonQuitActionPerformed"/>
+            <EventHandler event="ancestorResized" listener="java.awt.event.HierarchyBoundsListener" parameters="java.awt.event.HierarchyEvent" handler="JButtonQuitAncestorResized"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>

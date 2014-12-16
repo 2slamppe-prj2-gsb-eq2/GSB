@@ -1,9 +1,11 @@
 package modele.dao;
 
-import modele.metier.*;
-import modele.jdbc.Jdbc;
 import java.sql.*;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import modele.jdbc.Jdbc;
+import modele.metier.*;
 
 /**
  * Classe DAO pour la classe Visiteur
@@ -48,7 +50,51 @@ private DaoSecteur daoSecteur = new DaoSecteur() ;
         }
         return (result);
     }
+    
+    public Visiteur getOneByLogin(String login) throws SQLException, Exception
+    {
+        Visiteur result = null ;
+        ResultSet rs = null ;
+        String requete = "SELECT * FROM VISITEUR WHERE VIS_NOM = ? " ;
+        System.out.println("Requete sans parametre : "+requete) ;
+        PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
+        ps.setString(1, login);
+        rs = ps.executeQuery() ;
+        System.out.println("Requête avec paramètre : "+rs) ;
+        if (rs.next()) {
+            result = chargerUnEnregistrement (rs) ;
+        }
+        System.out.println("Result"+result) ;
+        return result ;          
+    }
+        /**
+     * Vérifier le login d'un Visiteur
+     *
+     * @param em : contexte de persistance
+     * @param login : nom du visiteur
+     * @param mdp : date d'embauche avec format JJ-MMM-AA
+     * @return une valeur boolean
+     */
+    public boolean verifierLoginMdp(String login, String mdp) throws Exception {
+        boolean ok = false;
+        String dateEmbauche=null;
+        Visiteur unVisiteur = getOneByLogin(login);
+        System.out.println(unVisiteur.toString2()) ;
+        if (unVisiteur != null) {
+            Format formatter = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
+              dateEmbauche = formatter.format(unVisiteur.getDateEmbauche());
+        }
+   
+        System.out.println(mdp) ;
+        System.out.println(dateEmbauche.toLowerCase()) ;
 
+        if (dateEmbauche!=null && dateEmbauche.toLowerCase().equals(mdp)) {
+            ok = true;
+        }
+
+        return ok;
+    }    
+    
     /**
      * getAll
      *
@@ -112,6 +158,7 @@ private DaoSecteur daoSecteur = new DaoSecteur() ;
             visiteur.setNom(rs.getString("VIS_NOM"));
             visiteur.setAdresse(rs.getString("VIS_ADRESSE"));
             visiteur.setVille(rs.getString("VIS_VILLE"));
+            visiteur.setDateEmbauche(rs.getDate("VIS_DATEEMBAUCHE") );                
             visiteur.setCp(rs.getString("VIS_CP"));
             visiteur.setSecteur(daoSecteur.getOne(rs.getString("SEC_CODE")));
             visiteur.setLabo(daoLabo.getOne(rs.getString("LAB_CODE")));
@@ -120,4 +167,6 @@ private DaoSecteur daoSecteur = new DaoSecteur() ;
             throw new DaoException("DaoVisiteur - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());
         }
     }
+    
+    
 }
