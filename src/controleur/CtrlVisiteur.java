@@ -135,11 +135,7 @@ public class CtrlVisiteur extends CtrlAbstrait {
         {
              getVue().secteurCombo.setSelectedItem("aucun");
         }
-        
-       
       
-       
-        
     }
     /**
      * Charge la vue visiteur

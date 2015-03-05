@@ -35,7 +35,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="660" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jButtonCr" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonVIsite" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -49,7 +49,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButtonCr" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonVIsite" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                       <Component id="jButtonVisit" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
@@ -67,12 +67,12 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButtonCr">
+    <Component class="javax.swing.JButton" name="jButtonVIsite">
       <Properties>
         <Property name="text" type="java.lang.String" value="Compte Rendus"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCrActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVIsiteActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
