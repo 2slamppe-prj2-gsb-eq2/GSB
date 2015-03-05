@@ -45,4 +45,9 @@ public class TypePraticien {
         this.lieu = lieu;
     }
 
+    @Override
+    public String toString() {
+        return "TypePraticien{" + "code=" + code + ", libelle=" + libelle + ", lieu=" + lieu + '}';
+    }
+
 }

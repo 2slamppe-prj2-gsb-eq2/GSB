@@ -18,9 +18,13 @@ public class Praticien {
     private String cp;
     private String ville;
     private float coefNotoriete;
-    private TypePraticien lesTypesPraticiens;
+    private String typeCode;
+    
+    public Praticien(){
+        
+    }
 
-    public Praticien(int num, String nom, String prenom, String adresse, String cp, String ville, float coefNotoriete, TypePraticien lesTypesPraticiens) {
+    public Praticien(int num, String nom, String prenom, String adresse, String cp, String ville, float coefNotoriete, String typeCode) {
         this.num = num;
         this.nom = nom;
         this.prenom = prenom;
@@ -28,7 +32,7 @@ public class Praticien {
         this.cp = cp;
         this.ville = ville;
         this.coefNotoriete = coefNotoriete;
-        this.lesTypesPraticiens = lesTypesPraticiens;
+        this.typeCode = typeCode;
     }
 
     public int getNum() {
@@ -87,12 +91,16 @@ public class Praticien {
         this.coefNotoriete = coefNotoriete;
     }
 
-    public TypePraticien getLesTypesPraticiens() {
-        return lesTypesPraticiens;
+    public String getTypeCode() {
+        return typeCode;
     }
 
-    public void setLesTypesPraticiens(TypePraticien lesTypesPraticiens) {
-        this.lesTypesPraticiens = lesTypesPraticiens;
+    public void setTypeCode(String typeCode) {
+        this.typeCode = typeCode;
     }
 
+    @Override
+    public String toString() {
+        return "Praticien{" + "num=" + num + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", cp=" + cp + ", ville=" + ville + ", coefNotoriete=" + coefNotoriete + ", typeCode=" + typeCode + '}';
+    }
 }

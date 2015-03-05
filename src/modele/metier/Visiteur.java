@@ -33,16 +33,9 @@ public class Visiteur {
         this.labo = labo;
     }
 
-    
-    public String toString2() {
-        return "Visiteur{" + "matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", cp=" + cp + ", ville=" + ville + ", dateEmbauche=" + dateEmbauche + ", secteur=" + secteur + ", labo=" + labo + '}';
-    }
- 
-    
-    
-     @Override
+    @Override
     public String toString() {
-        return  nom + " " + prenom;
+        return "Visiteur{" + "matricule=" + matricule + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", cp=" + cp + ", ville=" + ville + ", dateEmbauche=" + dateEmbauche + ", secteur=" + secteur + ", labo=" + labo + '}';
     }
 
     public String getMatricule() {
