@@ -37,6 +37,15 @@ public class CtrlMenu extends CtrlAbstrait {
     public void visiteur() throws Exception {
         this.getCtrlPrincipal().action(EnumAction.MENU_VISITEUR);
     }
+    
+    /**
+     * 
+     * @return 
+     **/
+    
+    public void visite() throws Exception {
+        this.getCtrlPrincipal().action(EnumAction.MENU_VISITE) ;
+    }
 
     @Override
     public VueMenu getVue() {

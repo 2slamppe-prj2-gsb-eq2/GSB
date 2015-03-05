@@ -10,7 +10,9 @@ package controleur;
 public enum EnumAction {
      AFFICHER_MENU
     ,MENU_RETOUR
+    ,MENU_VISITE
     ,MENU_VISITEUR
     ,VISITEUR_RETOUR
+    ,VISITE_RETOUR
     ,MENU_FICHIER_QUITTER
 }

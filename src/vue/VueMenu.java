@@ -36,7 +36,7 @@ public class VueMenu extends  VueAbstraite {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonCr = new javax.swing.JButton();
+        jButtonVIsite = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButtonVisit = new javax.swing.JButton();
         jButtonPrat = new javax.swing.JButton();
@@ -46,10 +46,10 @@ public class VueMenu extends  VueAbstraite {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonCr.setText("Compte Rendus");
-        jButtonCr.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVIsite.setText("Compte Rendus");
+        jButtonVIsite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCrActionPerformed(evt);
+                jButtonVIsiteActionPerformed(evt);
             }
         });
 
@@ -90,7 +90,7 @@ public class VueMenu extends  VueAbstraite {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButtonCr)))
+                    .addComponent(jButtonVIsite)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +101,7 @@ public class VueMenu extends  VueAbstraite {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonCr)
+                        .addComponent(jButtonVIsite)
                         .addGap(20, 20, 20)
                         .addComponent(jButtonVisit)
                         .addGap(20, 20, 20)
@@ -116,9 +116,14 @@ public class VueMenu extends  VueAbstraite {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonCrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonCrActionPerformed
+    private void jButtonVIsiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVIsiteActionPerformed
+            try {
+            ((CtrlMenu)controleur).visite();       // TODO add your handling code here:
+        } catch (Exception ex) {
+            Logger.getLogger(VueMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+   
+    }//GEN-LAST:event_jButtonVIsiteActionPerformed
 
     private void jButtonQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQuitterActionPerformed
     System.exit(0);        // TODO add your handling code here:
@@ -138,10 +143,10 @@ public class VueMenu extends  VueAbstraite {
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCr;
     private javax.swing.JButton jButtonMedoc;
     private javax.swing.JButton jButtonPrat;
     private javax.swing.JButton jButtonQuitter;
+    private javax.swing.JButton jButtonVIsite;
     private javax.swing.JButton jButtonVisit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

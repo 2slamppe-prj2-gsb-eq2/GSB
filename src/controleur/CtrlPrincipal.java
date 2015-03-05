@@ -15,6 +15,7 @@ import controleur.CtrlAbstrait ;
 public class CtrlPrincipal {
 
     private CtrlVisiteur ctrlVisiteur = null;
+    private CtrlVisite ctrlVisite = null ;
     private CtrlMenu ctrlMenu = null;
     private CtrlConnexion ctrlConnexion = null ;
     
@@ -34,12 +35,18 @@ public class CtrlPrincipal {
         switch (action) {
             case MENU_VISITEUR: // activation de vueVisiteur depuis vueMenu
                 menuVisiteur();
-                break;
+                break; 
+            case MENU_VISITE:
+                menuVisite();
+                break ;
             case AFFICHER_MENU :
                  afficherMenu() ;
                  break ;
             case VISITEUR_RETOUR:    // retour à vueMenu depuis la vueVisiteur
                 visiteurQuitter();
+                break;
+            case VISITE_RETOUR:    // retour à vueMenu depuis la vueVisiteur
+                visiteQuitter();
                 break;
             case MENU_FICHIER_QUITTER: // fin de l'application depuis vueMenu
                 menuFichierQuitter();
@@ -94,6 +101,21 @@ public class CtrlPrincipal {
         ctrlMenu.getVue().setEnabled(false);
         ctrlVisiteur.getVue().setVisible(true);
     }
+    
+    /*
+    *
+    *
+    **/
+    
+    private void menuVisite() throws Exception{
+        if(ctrlVisite == null){
+            ctrlVisite = new CtrlVisite(this) ;
+        } else {
+            ctrlVisite.actualiser() ;
+        }
+        ctrlMenu.getVue().setEnabled(false);
+        ctrlVisite.getVue().setVisible(true) ;
+    }
 
     /**
      * Transition vueVisiteur / vueMenu
@@ -103,6 +125,17 @@ public class CtrlPrincipal {
             ctrlMenu = new CtrlMenu(this);
         }
         ctrlVisiteur.getVue().setVisible(false);
+        ctrlMenu.getVue().setEnabled(true);
+        ctrlMenu.getVue().setVisible(true);
+    }
+    /**
+     * 
+     */
+    private void visiteQuitter(){
+         if (ctrlMenu == null) {
+            ctrlMenu = new CtrlMenu(this);
+        }
+        ctrlVisite.getVue().setVisible(false);
         ctrlMenu.getVue().setEnabled(true);
         ctrlMenu.getVue().setVisible(true);
     }

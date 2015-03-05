@@ -29,7 +29,7 @@ public class Main {
     public static void main(String[] args)  {
 
         String ficPropertiesJdbc ="gsbJdbc.properties" ;       // nom du fichier de properties SERVEUR DISTANT
-       // String ficPropertiesJdbc ="gsbJdbcLocal.properties" ;    //nom du fichier de properties SERVEUR LOCAL
+        //String ficPropertiesJdbc ="gsbJdbcLocal.properties" ;    //nom du fichier de properties SERVEUR LOCAL
         Properties propertiesJdbc;                              // objet de propriétés (paramètres de l'appplication) pour Jdbc
         FileInputStream input;                                  // flux de lecture des properties
         CtrlPrincipal ctrlPrincipal;                                  // référence vers le contrôleur principal
