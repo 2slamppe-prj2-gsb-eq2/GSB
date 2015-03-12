@@ -24,9 +24,9 @@ public class DaoLabo implements DaoInterface<Labo, String> {
     /**
      * Lire un enregistrement d'après son identifiant
      *
-     * @param identifiant métier de l'objet recherché
+     * @param labCode métier de l'objet recherché
      * @return objet métier trouvé, ou null sinon
-     * @throws Exception
+     * @throws modele.dao.DaoException
      */
     @Override
     public Labo getOne(String labCode) throws DaoException {
@@ -47,12 +47,10 @@ public class DaoLabo implements DaoInterface<Labo, String> {
         return (result);
     }
 
-
     /**
      * getAll
      *
-     * @return ArrayList de l'ensemble des occurences d'labos de la table
-     * LABO
+     * @return ArrayList de l'ensemble des occurences d'labos de la table LABO
      */
     @Override
     public ArrayList<Labo> getAll() throws DaoException {
@@ -94,23 +92,21 @@ public class DaoLabo implements DaoInterface<Labo, String> {
     //  Méthodes privées
     //----------------------------------------------------------------------
     /**
-     * chargerUnEnregistrementLabo Instancie un objet labo avec les
-     * valeurs lues dans la base de données La jointure avec la table PRESENCE
-     * n'est pas effectuée
+     * chargerUnEnregistrementLabo Instancie un objet labo avec les valeurs lues
+     * dans la base de données La jointure avec la table PRESENCE n'est pas
+     * effectuée
      *
      * @param rs enregistrement de la table Labo courant
-     * @return un objet Labo, dont la liste des "présences" n'est pas
-     * renseignée
+     * @return un objet Labo, dont la liste des "présences" n'est pas renseignée
      * @throws DaoException
      */
     private Labo chargerUnEnregistrement(ResultSet rs) throws DaoException {
         try {
-            Labo labo = new Labo(null,null,null);
+            Labo labo = new Labo(null, null, null);
             labo.setCode(rs.getString("LAB_CODE"));
             labo.setNom(rs.getString("LAB_NOM"));
-           // labo.setChefvente(rs.getString("LAB_CHEFVENTE"));
-           
-           
+            labo.setChefVente(rs.getString("LAB_CHEFVENTE"));
+
             return labo;
         } catch (SQLException ex) {
             throw new DaoException("DaoLabo - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());
