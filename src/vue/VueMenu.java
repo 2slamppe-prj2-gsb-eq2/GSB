@@ -46,7 +46,7 @@ public class VueMenu extends  VueAbstraite {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonVIsite.setText("Compte Rendus");
+        jButtonVIsite.setText("Rapport de Visite");
         jButtonVIsite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVIsiteActionPerformed(evt);
