@@ -31,13 +31,13 @@ public class DaoPraticien implements DaoInterface<Praticien, String> {
      * @throws modele.dao.DaoException
      * @throws Exception
      */
-    public Praticien getOne(String numero) throws DaoException, Exception {
+    public Praticien getOne(int numero) throws DaoException, Exception {
         Praticien result = null;
         // préparer la requête
         String requete = "SELECT * FROM PRATICIEN WHERE PRA_NUM=?";
         try {
             PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
-            ps.setString(1, numero);
+            ps.setInt(1, numero);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 result = chargerUnEnregistrement(rs);
@@ -69,7 +69,9 @@ public class DaoPraticien implements DaoInterface<Praticien, String> {
         } catch (SQLException ex) {
             throw new modele.dao.DaoException("DaoPraticien::getAll : erreur requete SELECT : " + ex.getMessage());
         }
+         System.out.println(result);
         return result;
+       
     }
 
     /**
@@ -103,19 +105,24 @@ public class DaoPraticien implements DaoInterface<Praticien, String> {
      */
     private Praticien chargerUnEnregistrement(ResultSet rs) throws DaoException, Exception {
         try {
-            Praticien Praticien = new Praticien();
-            Praticien.setNum(rs.getInt("PRA_NUM"));
-            Praticien.setNom(rs.getString("PRA_NOM"));
-            Praticien.setPrenom(rs.getString("PRA_PRENOM"));
-            Praticien.setAdresse(rs.getString("PRA_ADRESSE"));
-            Praticien.setCp(rs.getString("PRA_CP"));
-            Praticien.setVille(rs.getString("PRA_VILLE"));
-            Praticien.setCoefNotoriete(rs.getFloat("PRA_COEFNOTORIETE") );                
-            Praticien.setTypeCode(rs.getString("TYP_CODE"));
+            Praticien praticien = new Praticien(0,null,null,null,null,null,0,null);
+            praticien.setNum(rs.getInt("PRA_NUM"));
+            praticien.setNom(rs.getString("PRA_NOM"));
+            praticien.setPrenom(rs.getString("PRA_PRENOM"));
+            praticien.setAdresse(rs.getString("PRA_ADRESSE"));
+            praticien.setCp(rs.getString("PRA_CP"));
+            praticien.setVille(rs.getString("PRA_VILLE"));
+            praticien.setCoefNotoriete(rs.getFloat("PRA_COEFNOTORIETE") );                
+            praticien.setTypeCode(rs.getString("TYP_CODE"));
             return praticien;
         } catch (SQLException ex) {
             throw new DaoException("DaoPraticien - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());
         }
+    }
+
+    @Override
+    public Praticien getOne(String idMetier) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

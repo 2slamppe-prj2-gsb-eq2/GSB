@@ -10,6 +10,7 @@ import controleur.CtrlVisite;
 import controleur.CtrlVisiteur;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -22,6 +23,14 @@ public class VueVisite  extends VueAbstraite {
         initComponents();
         this.setLocation(500, 200);
         this.setBounds(500, 200, 1236, 490);
+    }
+
+    public JComboBox getjComboBoxPraticien() {
+        return jComboBoxPraticien;
+    }
+
+    public void setjComboBoxPraticien(JComboBox jComboBoxPraticien) {
+        this.jComboBoxPraticien = jComboBoxPraticien;
     }
 
     /**
@@ -88,13 +97,12 @@ public class VueVisite  extends VueAbstraite {
         jLabel3.setText("Praticiens :");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 150, 30));
 
-        jComboBoxPraticien.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxPraticien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxPraticienActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBoxPraticien, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 120, -1));
+        getContentPane().add(jComboBoxPraticien, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 140, -1));
 
         jLabel4.setText("Motif Visite :");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 120, -1));
@@ -107,7 +115,7 @@ public class VueVisite  extends VueAbstraite {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 280, 140));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 280, 140));
 
         jButtonNext.setText("Suivant");
         getContentPane().add(jButtonNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, -1, -1));
@@ -135,7 +143,7 @@ public class VueVisite  extends VueAbstraite {
     }//GEN-LAST:event_jTextFieldDateActionPerformed
 
     private void jComboBoxPraticienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPraticienActionPerformed
-        // TODO add your handling code here:
+       ((CtrlVisite)controleur).praticienSelectionner();
     }//GEN-LAST:event_jComboBoxPraticienActionPerformed
 
     private void jButtonFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFermerActionPerformed
@@ -152,7 +160,7 @@ public class VueVisite  extends VueAbstraite {
     private javax.swing.JButton jButtonFermer;
     private javax.swing.JButton jButtonNext;
     private javax.swing.JButton jButtonPrevious;
-    private javax.swing.JComboBox jComboBoxPraticien;
+    public javax.swing.JComboBox jComboBoxPraticien;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

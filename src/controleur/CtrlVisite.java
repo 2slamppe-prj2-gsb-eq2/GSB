@@ -5,8 +5,12 @@
  */
 package controleur;
 
+import java.util.List;
 import javax.swing.JOptionPane;
 import modele.dao.DaoException;
+import modele.dao.DaoPraticien;
+import modele.dao.DaoVisiteur;
+import modele.metier.Praticien;
 import vue.VueVisite;
 import vue.VueVisiteur;
 
@@ -15,7 +19,8 @@ import vue.VueVisiteur;
  * @author btssio
  */
 public class CtrlVisite  extends CtrlAbstrait {
-    
+        
+    private final DaoPraticien daoPraticien = new DaoPraticien();
     /**
      * @param ctrlPrincipal
      * @throws Exception 
@@ -31,8 +36,8 @@ public class CtrlVisite  extends CtrlAbstrait {
        * @throws Exception 
        */
        public final void actualiser() throws Exception {
-     
-    
+           chargerListePraticiens() ;
+           
     }
    
        /**
@@ -43,6 +48,31 @@ public class CtrlVisite  extends CtrlAbstrait {
          this.getCtrlPrincipal().action(EnumAction.VISITE_RETOUR);
     }
 
+    
+    
+     /**
+     * chargerListePraticiens renseigner le modèle du composant JcomBoxPraticien
+     * à partir de la base de données
+     * @throws DaoException
+     */
+    private void chargerListePraticiens() throws DaoException, Exception {
+        List<Praticien> desPraticiens = daoPraticien.getAll();
+        getVue().jComboBoxPraticien.removeAll();
+        for (Praticien unPraticien : desPraticiens) {
+            getVue().jComboBoxPraticien.addItem(unPraticien);
+
+        }
+    }
+    
+    /**
+     *
+     * 
+     **/
+    
+    public void praticienSelectionner() {
+        
+    }
+    
      /**
      * Charge la vue visiteur
      *
