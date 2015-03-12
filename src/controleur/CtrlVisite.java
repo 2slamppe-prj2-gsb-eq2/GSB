@@ -9,8 +9,10 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import modele.dao.DaoException;
 import modele.dao.DaoPraticien;
+import modele.dao.DaoRapportVisite;
 import modele.dao.DaoVisiteur;
 import modele.metier.Praticien;
+import modele.metier.RapportVisite;
 import vue.VueVisite;
 import vue.VueVisiteur;
 
@@ -21,6 +23,7 @@ import vue.VueVisiteur;
 public class CtrlVisite  extends CtrlAbstrait {
         
     private final DaoPraticien daoPraticien = new DaoPraticien();
+    private final DaoRapportVisite daoRapportVisite = new DaoRapportVisite();
     /**
      * @param ctrlPrincipal
      * @throws Exception 
@@ -63,12 +66,14 @@ public class CtrlVisite  extends CtrlAbstrait {
 
         }
     }
+    private void chargerListeRapport() throws DaoException, Exception {
+        List<RapportVisite> lesRapports = daoRapportVisite.getAll() ;
+    }
     
     /**
      *
      * 
      **/
-    
     public void praticienSelectionner() {
         
     }

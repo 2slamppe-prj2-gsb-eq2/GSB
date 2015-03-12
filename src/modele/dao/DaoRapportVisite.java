@@ -95,4 +95,9 @@ public class DaoRapportVisite implements DaoInterface<RapportVisite, String> {
         }
     }
 
+    @Override
+    public RapportVisite getOne(String idMetier) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
