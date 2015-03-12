@@ -14,7 +14,6 @@ import modele.metier.*;
  * @author nbourgeois
  */
 public class DaoVisiteur implements DaoInterface<Visiteur, String> {
-//private DaoSecteur daoSecteur = new DaoSecteur();
 private DaoLabo daoLabo = new DaoLabo();
 private DaoSecteur daoSecteur = new DaoSecteur() ;
     /**

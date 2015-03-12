@@ -11,39 +11,40 @@ import modele.metier.*;
  * @version 22 novembre 2013
  * @author nbourgeois
  */
-public class DaoPraticien implements DaoInterface<Praticien, String> {
-    private Praticien praticien;
+public class DaoTypePraticien implements DaoInterface<TypePraticien, String> {
+    private TypePraticien typePraticien;
+
     /**
-     * Non implémenté
-     * @param unPraticien
-     * @return 
-     * @throws java.lang.Exception
+     *
+     * @param unTypePraticien
+     * @return
+     * @throws Exception
      */
-    public int create(Praticien unPraticien) throws Exception {
+    public int create(TypePraticien unTypePraticien) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
      * Lire un enregistrement d'après son identifiant
      *
-     * @param numero
+     * @param code
      * @return objet métier trouvé, ou null sinon
      * @throws modele.dao.DaoException
      * @throws Exception
      */
-    public Praticien getOne(String numero) throws DaoException, Exception {
-        Praticien result = null;
+    public TypePraticien getOne(String code) throws DaoException, Exception {
+        TypePraticien result = null;
         // préparer la requête
-        String requete = "SELECT * FROM PRATICIEN WHERE PRA_NUM=?";
+        String requete = "SELECT * FROM TYPE_PRATICIEN WHERE TYP_CODE=?";
         try {
             PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
-            ps.setString(1, numero);
+            ps.setString(1, code);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 result = chargerUnEnregistrement(rs);
             }
         } catch (SQLException ex) {
-            throw new modele.dao.DaoException("DaoPraticien::getOne : erreur requete SELECT : " + ex.getMessage());
+            throw new modele.dao.DaoException("DaoTypePraticien::getOne : erreur requete SELECT : " + ex.getMessage());
         }
         return (result);
     }
@@ -53,41 +54,41 @@ public class DaoPraticien implements DaoInterface<Praticien, String> {
      * @return 
      * @throws modele.dao.DaoException
      */
-    public ArrayList<Praticien> getAll() throws DaoException, Exception {
-        ArrayList<Praticien> result = new ArrayList<>();
+    public ArrayList<TypePraticien> getAll() throws DaoException, Exception {
+        ArrayList<TypePraticien> result = new ArrayList<>();
         ResultSet rs;
         // préparer la requête
-        String requete = "SELECT * FROM PRATICIEN";
+        String requete = "SELECT * FROM TYPE_PRATICIEN";
         try {
             PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
             rs = ps.executeQuery();
             // Charger les enregistrements dans la collection
             while (rs.next()) {
-                Praticien unPraticien = chargerUnEnregistrement(rs);
-                result.add(unPraticien);
+                TypePraticien unTypePraticien = chargerUnEnregistrement(rs);
+                result.add(unTypePraticien);
             }
         } catch (SQLException ex) {
-            throw new modele.dao.DaoException("DaoPraticien::getAll : erreur requete SELECT : " + ex.getMessage());
+            throw new modele.dao.DaoException("DaoTypePraticien::getAll : erreur requete SELECT : " + ex.getMessage());
         }
         return result;
     }
 
     /**
-     * @param num
+     * @param code
      * @param objetMetier
      * @return 
      * @throws java.lang.Exception
      */
-    public int update(String num, Praticien objetMetier) throws Exception {
+    public int update(String code, TypePraticien objetMetier) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
-     * @param num
+     * @param code
      * @return 
      * @throws java.lang.Exception
      */
-    public int delete(String num) throws Exception {
+    public int delete(String code) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -101,20 +102,15 @@ public class DaoPraticien implements DaoInterface<Praticien, String> {
      * @param rs enregistrement de la table Visiteur courant
      * @throws DaoException
      */
-    private Praticien chargerUnEnregistrement(ResultSet rs) throws DaoException, Exception {
+    private TypePraticien chargerUnEnregistrement(ResultSet rs) throws DaoException, Exception {
         try {
-            Praticien praticien = new Praticien();
-            praticien.setNum(rs.getInt("PRA_NUM"));
-            praticien.setNom(rs.getString("PRA_NOM"));
-            praticien.setPrenom(rs.getString("PRA_PRENOM"));
-            praticien.setAdresse(rs.getString("PRA_ADRESSE"));
-            praticien.setCp(rs.getString("PRA_CP"));
-            praticien.setVille(rs.getString("PRA_VILLE"));
-            praticien.setCoefNotoriete(rs.getFloat("PRA_COEFNOTORIETE") );                
-            praticien.setTypeCode(rs.getString("TYP_CODE"));
-            return praticien;
+            TypePraticien typePraticien = new TypePraticien(null, null, null);
+            typePraticien.setCode(rs.getString("PRA_NUM"));
+            typePraticien.setLibelle(rs.getString("PRA_NOM"));
+            typePraticien.setLieu(rs.getString("PRA_CP"));
+            return typePraticien;
         } catch (SQLException ex) {
-            throw new DaoException("DaoPraticien - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());
+            throw new DaoException("DaoTypePraticien - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());
         }
     }
     
