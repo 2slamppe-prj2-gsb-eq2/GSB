@@ -99,8 +99,11 @@ public class Praticien {
         this.typeCode = typeCode;
     }
 
-    @Override
-    public String toString() {
+    public String toString2() {
         return "Praticien{" + "num=" + num + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", cp=" + cp + ", ville=" + ville + ", coefNotoriete=" + coefNotoriete + ", typeCode=" + typeCode + '}';
+    }
+    
+    public String toString(){
+        return nom+" "+prenom ;
     }
 }

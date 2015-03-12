@@ -59,11 +59,9 @@ private DaoSecteur daoSecteur = new DaoSecteur() ;
         PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
         ps.setString(1, login);
         rs = ps.executeQuery() ;
-        System.out.println("Requête avec paramètre : "+rs) ;
         if (rs.next()) {
             result = chargerUnEnregistrement (rs) ;
         }
-        System.out.println("Result"+result) ;
         return result ;          
     }
         /**
@@ -78,14 +76,12 @@ private DaoSecteur daoSecteur = new DaoSecteur() ;
         boolean ok = false;
         String dateEmbauche=null;
         Visiteur unVisiteur = getOneByLogin(login);
-        System.out.println(unVisiteur.toString2()) ;
         if (unVisiteur != null) {
             Format formatter = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
               dateEmbauche = formatter.format(unVisiteur.getDateEmbauche());
         }
    
-        System.out.println(mdp) ;
-        System.out.println(dateEmbauche.toLowerCase()) ;
+ 
 
         if (dateEmbauche!=null && dateEmbauche.toLowerCase().equals(mdp)) {
             ok = true;
