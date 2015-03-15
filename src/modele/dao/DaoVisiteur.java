@@ -55,7 +55,6 @@ private DaoSecteur daoSecteur = new DaoSecteur() ;
         Visiteur result = null ;
         ResultSet rs = null ;
         String requete = "SELECT * FROM VISITEUR WHERE VIS_NOM = ? " ;
-        System.out.println("Requete sans parametre : "+requete) ;
         PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
         ps.setString(1, login);
         rs = ps.executeQuery() ;

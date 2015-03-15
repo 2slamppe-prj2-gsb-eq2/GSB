@@ -50,16 +50,16 @@ public class VueVisite  extends VueAbstraite {
         visiteurLabel = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextNum = new javax.swing.JTextField();
+        num = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextFieldDate = new javax.swing.JTextField();
+        date = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jComboBoxPraticien = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldMotif = new javax.swing.JTextField();
+        motif = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        bilan = new javax.swing.JTextArea();
         jButtonNext = new javax.swing.JButton();
         jButtonPrevious = new javax.swing.JButton();
         jButtonFermer = new javax.swing.JButton();
@@ -77,22 +77,24 @@ public class VueVisite  extends VueAbstraite {
         jLabel1.setText("Numéro de Rapport :");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, 30));
 
-        jTextNum.addActionListener(new java.awt.event.ActionListener() {
+        num.setEditable(false);
+        num.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextNumActionPerformed(evt);
+                numActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 120, -1));
+        getContentPane().add(num, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 210, -1));
 
         jLabel2.setText("Date du Rapport :");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 140, 30));
 
-        jTextFieldDate.addActionListener(new java.awt.event.ActionListener() {
+        date.setEditable(false);
+        date.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDateActionPerformed(evt);
+                dateActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 120, -1));
+        getContentPane().add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 210, -1));
 
         jLabel3.setText("Praticiens :");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 150, 30));
@@ -102,25 +104,38 @@ public class VueVisite  extends VueAbstraite {
                 jComboBoxPraticienActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBoxPraticien, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 140, -1));
+        getContentPane().add(jComboBoxPraticien, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 210, -1));
 
         jLabel4.setText("Motif Visite :");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 120, -1));
-        getContentPane().add(jTextFieldMotif, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 120, -1));
+
+        motif.setEditable(false);
+        getContentPane().add(motif, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 210, -1));
 
         jLabel5.setText("Bilan :");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 90, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        bilan.setEditable(false);
+        bilan.setColumns(20);
+        bilan.setRows(5);
+        jScrollPane1.setViewportView(bilan);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 280, 140));
 
         jButtonNext.setText("Suivant");
+        jButtonNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNextActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, -1, -1));
 
         jButtonPrevious.setText("Précédent");
+        jButtonPrevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPreviousActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonPrevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, -1, -1));
 
         jButtonFermer.setText("Fermer");
@@ -134,16 +149,16 @@ public class VueVisite  extends VueAbstraite {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNumActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextNumActionPerformed
+    private void numActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numActionPerformed
+          ((CtrlVisite)controleur).rapportSelectionner();
+    }//GEN-LAST:event_numActionPerformed
 
-    private void jTextFieldDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDateActionPerformed
+    private void dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDateActionPerformed
+    }//GEN-LAST:event_dateActionPerformed
 
     private void jComboBoxPraticienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPraticienActionPerformed
-       ((CtrlVisite)controleur).praticienSelectionner();
+
     }//GEN-LAST:event_jComboBoxPraticienActionPerformed
 
     private void jButtonFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFermerActionPerformed
@@ -154,9 +169,27 @@ public class VueVisite  extends VueAbstraite {
         }
     }//GEN-LAST:event_jButtonFermerActionPerformed
 
+    private void jButtonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextActionPerformed
+         try {
+            ((CtrlVisite)controleur).visiteSuivant();
+        } catch (Exception ex) {
+            Logger.getLogger(VueVisiteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonNextActionPerformed
+
+    private void jButtonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPreviousActionPerformed
+           try {
+            ((CtrlVisite)controleur).visitePrecedent();
+        } catch (Exception ex) {
+            Logger.getLogger(VueVisiteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonPreviousActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    public javax.swing.JTextArea bilan;
+    public javax.swing.JTextField date;
     private javax.swing.JButton jButtonFermer;
     private javax.swing.JButton jButtonNext;
     private javax.swing.JButton jButtonPrevious;
@@ -167,10 +200,8 @@ public class VueVisite  extends VueAbstraite {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextFieldDate;
-    private javax.swing.JTextField jTextFieldMotif;
-    private javax.swing.JTextField jTextNum;
+    public javax.swing.JTextField motif;
+    public javax.swing.JTextField num;
     private javax.swing.JLabel visiteurLabel;
     // End of variables declaration//GEN-END:variables
 }

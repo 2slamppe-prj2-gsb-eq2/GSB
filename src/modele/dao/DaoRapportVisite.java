@@ -56,6 +56,7 @@ public class DaoRapportVisite implements DaoInterface<RapportVisite, String> {
         } catch (SQLException ex) {
             throw new modele.dao.DaoException("DaoRapportVisite::getAll : erreur requete SELECT : " + ex.getMessage());
         }
+
         return result;
     }
 
@@ -81,14 +82,16 @@ public class DaoRapportVisite implements DaoInterface<RapportVisite, String> {
      * @throws DaoException
      */
     private RapportVisite chargerUnEnregistrement(ResultSet rs) throws DaoException, Exception {
+
         try {
             RapportVisite rapportVisite = new RapportVisite();
             rapportVisite.setVisiteur(daoVisiteur.getOne(rs.getString("VIS_MATRICULE")));
-            rapportVisite.setNum(rs.getInt("RAP_NOM"));
+            rapportVisite.setNum(rs.getInt("RAP_NUM"));
             rapportVisite.setPraticien(daoPraticien.getOne(rs.getInt("PRA_NUM")));
             rapportVisite.setDate(rs.getDate("RAP_DATE"));
             rapportVisite.setBilan(rs.getString("RAP_BILAN"));
             rapportVisite.setMotif(rs.getString("RAP_MOTIF"));
+
             return rapportVisite;
         } catch (SQLException ex) {
             throw new DaoException("DaoRapportVisite - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());

@@ -69,7 +69,7 @@ public class DaoPraticien implements DaoInterface<Praticien, String> {
         } catch (SQLException ex) {
             throw new modele.dao.DaoException("DaoPraticien::getAll : erreur requete SELECT : " + ex.getMessage());
         }
-         System.out.println(result);
+ 
         return result;
        
     }

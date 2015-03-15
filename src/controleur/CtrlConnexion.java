@@ -60,12 +60,9 @@ public class CtrlConnexion extends CtrlAbstrait {
    {
        // récupération du login et mot de passe pour vérification
         String login = getVue().JtextLogin.getText();
-        System.out.println(login) ;
         String mdp = getVue().JTextMdp.getText();
-        System.out.println(mdp) ;
          //vérification vers la bdd oracle en JPA
         connexion = daoVisiteur.verifierLoginMdp(login, mdp);
-        System.out.println(connexion) ;
         if(connexion){
             //System.out.print("connexion réussi");
             CtrlPrincipal ctrlP = new CtrlPrincipal();

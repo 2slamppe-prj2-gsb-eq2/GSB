@@ -5,6 +5,8 @@
  */
 package controleur;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.JOptionPane;
 import modele.dao.DaoException;
@@ -24,6 +26,12 @@ public class CtrlVisite  extends CtrlAbstrait {
         
     private final DaoPraticien daoPraticien = new DaoPraticien();
     private final DaoRapportVisite daoRapportVisite = new DaoRapportVisite();
+    private String str ;
+    private List<Praticien> listPraticiens;
+    private List<RapportVisite> listRapportsVisite;
+    private int indiceCourant = 0 ;
+    DateFormat format = new SimpleDateFormat("MM/dd/yy");
+    
     /**
      * @param ctrlPrincipal
      * @throws Exception 
@@ -40,6 +48,8 @@ public class CtrlVisite  extends CtrlAbstrait {
        */
        public final void actualiser() throws Exception {
            chargerListePraticiens() ;
+           chargerListeRapport() ;
+           rapportSelectionner() ;
            
     }
    
@@ -59,23 +69,58 @@ public class CtrlVisite  extends CtrlAbstrait {
      * @throws DaoException
      */
     private void chargerListePraticiens() throws DaoException, Exception {
-        List<Praticien> desPraticiens = daoPraticien.getAll();
-        getVue().jComboBoxPraticien.removeAll();
-        for (Praticien unPraticien : desPraticiens) {
-            getVue().jComboBoxPraticien.addItem(unPraticien);
+        getVue().jComboBoxPraticien.removeAllItems();
+        getVue().jComboBoxPraticien.addItem("Aucun");
+        listPraticiens = daoPraticien.getAll() ;
+        for (Praticien unPraticien : listPraticiens) {
+            getVue().jComboBoxPraticien.addItem(unPraticien.getNom()+" "+unPraticien.getPrenom());
 
         }
+
     }
-    private void chargerListeRapport() throws DaoException, Exception {
-        List<RapportVisite> lesRapports = daoRapportVisite.getAll() ;
+    public void chargerListeRapport() throws DaoException, Exception {
+       
+        listRapportsVisite = daoRapportVisite.getAll() ;  
+  
     }
     
     /**
      *
      * 
      **/
-    public void praticienSelectionner() {
-        
+    public void rapportSelectionner() {
+        RapportVisite unRapport = listRapportsVisite.get(indiceCourant) ;
+        getVue().num.setText(Integer.toString(unRapport.getNum()));
+        getVue().date.setText(format.format(unRapport.getDate()));
+        getVue().motif.setText(unRapport.getMotif());
+        getVue().bilan.setText(unRapport.getBilan());
+        Praticien unPraticien = unRapport.getPraticien() ; 
+        getVue().jComboBoxPraticien.setSelectedItem(unPraticien.getNom()+" "+unPraticien.getPrenom());
+    }
+    
+    /**
+    *
+    *
+    **/
+    
+    public void visiteSuivant(){
+        indiceCourant = indiceCourant + 1;
+        if (indiceCourant>listRapportsVisite.size()-1) {
+            indiceCourant=0;
+            }                
+        rapportSelectionner();
+    }
+    
+    /**
+     * 
+     **/
+    
+    public void visitePrecedent(){
+        indiceCourant = indiceCourant - 1;
+        if (indiceCourant<0) {
+            indiceCourant=listRapportsVisite.size()-1;
+            }               
+        rapportSelectionner();
     }
     
      /**
