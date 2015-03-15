@@ -60,9 +60,11 @@ public class VueVisite  extends VueAbstraite {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         bilan = new javax.swing.JTextArea();
-        jButtonNext = new javax.swing.JButton();
-        jButtonPrevious = new javax.swing.JButton();
-        jButtonFermer = new javax.swing.JButton();
+        suivant = new javax.swing.JButton();
+        newRapport = new javax.swing.JButton();
+        validerRapport = new javax.swing.JButton();
+        precedent = new javax.swing.JButton();
+        fermer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(654, 450));
@@ -122,29 +124,46 @@ public class VueVisite  extends VueAbstraite {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 280, 140));
 
-        jButtonNext.setText("Suivant");
-        jButtonNext.addActionListener(new java.awt.event.ActionListener() {
+        suivant.setText("Suivant");
+        suivant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNextActionPerformed(evt);
+                suivantActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, -1, -1));
+        getContentPane().add(suivant, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
 
-        jButtonPrevious.setText("Précédent");
-        jButtonPrevious.addActionListener(new java.awt.event.ActionListener() {
+        newRapport.setText("Créer un nouveau rapport");
+        newRapport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPreviousActionPerformed(evt);
+                newRapportActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonPrevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, -1, -1));
+        getContentPane().add(newRapport, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
-        jButtonFermer.setText("Fermer");
-        jButtonFermer.addActionListener(new java.awt.event.ActionListener() {
+        validerRapport.setText("Valider");
+        validerRapport.setEnabled(false);
+        validerRapport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFermerActionPerformed(evt);
+                validerRapportActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonFermer, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, -1, -1));
+        getContentPane().add(validerRapport, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, -1, -1));
+
+        precedent.setText("Précédent");
+        precedent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                precedentActionPerformed(evt);
+            }
+        });
+        getContentPane().add(precedent, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+
+        fermer.setText("Fermer");
+        fermer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fermerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fermer, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -161,38 +180,52 @@ public class VueVisite  extends VueAbstraite {
 
     }//GEN-LAST:event_jComboBoxPraticienActionPerformed
 
-    private void jButtonFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFermerActionPerformed
-        try {
-            ((CtrlVisite)controleur).visiteQuitter();
+    private void validerRapportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validerRapportActionPerformed
+              try {
+            ((CtrlVisite)controleur).creerRapport();
         } catch (Exception ex) {
             Logger.getLogger(VueVisiteur.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonFermerActionPerformed
+    }//GEN-LAST:event_validerRapportActionPerformed
 
-    private void jButtonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextActionPerformed
+    private void suivantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suivantActionPerformed
          try {
             ((CtrlVisite)controleur).visiteSuivant();
         } catch (Exception ex) {
             Logger.getLogger(VueVisiteur.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonNextActionPerformed
+    }//GEN-LAST:event_suivantActionPerformed
 
-    private void jButtonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPreviousActionPerformed
-           try {
+    private void newRapportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newRapportActionPerformed
+        try {
+            ((CtrlVisite)controleur).visiteReset();
+        } catch (Exception ex) {
+            Logger.getLogger(VueVisiteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_newRapportActionPerformed
+
+    private void precedentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precedentActionPerformed
+              try {
             ((CtrlVisite)controleur).visitePrecedent();
         } catch (Exception ex) {
             Logger.getLogger(VueVisiteur.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonPreviousActionPerformed
+    }//GEN-LAST:event_precedentActionPerformed
+
+    private void fermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fermerActionPerformed
+         try {
+            ((CtrlVisite)controleur).visiteQuitter();
+        } catch (Exception ex) {
+            Logger.getLogger(VueVisiteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_fermerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     public javax.swing.JTextArea bilan;
     public javax.swing.JTextField date;
-    private javax.swing.JButton jButtonFermer;
-    private javax.swing.JButton jButtonNext;
-    private javax.swing.JButton jButtonPrevious;
+    private javax.swing.JButton fermer;
     public javax.swing.JComboBox jComboBoxPraticien;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -201,7 +234,11 @@ public class VueVisite  extends VueAbstraite {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextField motif;
+    private javax.swing.JButton newRapport;
     public javax.swing.JTextField num;
+    private javax.swing.JButton precedent;
+    private javax.swing.JButton suivant;
+    public javax.swing.JButton validerRapport;
     private javax.swing.JLabel visiteurLabel;
     // End of variables declaration//GEN-END:variables
 }

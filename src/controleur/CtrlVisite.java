@@ -6,17 +6,16 @@
 package controleur;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-import javax.swing.JOptionPane;
 import modele.dao.DaoException;
 import modele.dao.DaoPraticien;
 import modele.dao.DaoRapportVisite;
-import modele.dao.DaoVisiteur;
 import modele.metier.Praticien;
 import modele.metier.RapportVisite;
 import vue.VueVisite;
-import vue.VueVisiteur;
 
 /**
  *
@@ -31,6 +30,9 @@ public class CtrlVisite  extends CtrlAbstrait {
     private List<RapportVisite> listRapportsVisite;
     private int indiceCourant = 0 ;
     DateFormat format = new SimpleDateFormat("MM/dd/yy");
+    private Date newDate ;
+    private String newMotif ;
+    private String newBilan ;
     
     /**
      * @param ctrlPrincipal
@@ -121,6 +123,41 @@ public class CtrlVisite  extends CtrlAbstrait {
             indiceCourant=listRapportsVisite.size()-1;
             }               
         rapportSelectionner();
+    }
+    
+    /**
+     * 
+     * 
+     **/
+    
+    public void visiteReset(){
+        getVue().num.setText(" ");
+        getVue().jComboBoxPraticien.setEditable(true);
+        getVue().jComboBoxPraticien.setSelectedItem("Aucun");
+        getVue().date.setText(" ");
+        getVue().date.setEditable(true);
+        getVue().motif.setText(" ") ;
+        getVue().motif.setEditable(true);
+        getVue().bilan.setText(" ") ;
+        getVue().bilan.setEditable(true);
+        getVue().validerRapport.setEnabled(true);
+    }
+    
+    /**
+     * 
+     * 
+     */
+    
+    public void creerRapport() throws ParseException{
+        getVue().jComboBoxPraticien.getSelectedItem() ;
+        str = getVue().date.getText() ;
+        newDate = format.parse(str) ;
+        newMotif = getVue().motif.getText() ;
+        newBilan = getVue().bilan.getText() ;
+        
+        //Test
+        
+        System.out.println("Date : "+newDate+" Motif : "+newMotif+" newBilan : "+newBilan);
     }
     
      /**
