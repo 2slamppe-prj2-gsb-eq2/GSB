@@ -100,7 +100,7 @@ private DaoSecteur daoSecteur = new DaoSecteur() ;
         ArrayList<Visiteur> result = new ArrayList<Visiteur>();
         ResultSet rs;
         // préparer la requête
-        String requete = "SELECT * FROM VISITEUR";
+        String requete = "SELECT * FROM VISITEUR ORDER BY ASC";
         try {
             PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
             rs = ps.executeQuery();

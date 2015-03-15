@@ -26,16 +26,25 @@
           <Group type="102" attributes="0">
               <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButtonVisit" min="-2" pref="122" max="-2" attributes="0"/>
-                  <Component id="jButtonPrat" min="-2" pref="122" max="-2" attributes="0"/>
-                  <Component id="jButtonMedoc" min="-2" pref="120" max="-2" attributes="0"/>
-                  <Component id="jButtonQuitter" min="-2" pref="120" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="jLabel1" min="-2" pref="440" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel1" min="-2" pref="440" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jButtonVisit" max="32767" attributes="0"/>
+                                  <Component id="jButtonMedoc" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="286" pref="286" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <Component id="jLabel2" min="-2" pref="660" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jButtonVIsite" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonVIsite" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                  <Component id="jButtonPrat" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                  <Component id="jButtonQuitter" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -69,7 +78,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="jButtonVIsite">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Compte Rendus"/>
+        <Property name="text" type="java.lang.String" value="Rapport de Visite"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVIsiteActionPerformed"/>
