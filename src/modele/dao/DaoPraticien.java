@@ -73,6 +73,30 @@ public class DaoPraticien implements DaoInterface<Praticien, String> {
         return result;
        
     }
+    
+    /**
+     * getByName
+     * @param name
+     * @return result
+     */
+        public Praticien getByName(String nom, String prenom) throws DaoException, Exception {
+        Praticien result = null;
+        // préparer la requête
+        String requete = "SELECT * FROM PRATICIEN WHERE PRA_NOM=? AND PRA_PRENOM= ?";
+        try {
+            PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
+            ps.setString(1, nom);
+            ps.setString(2, prenom);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                result = chargerUnEnregistrement(rs);
+            }
+        } catch (SQLException ex) {
+            throw new modele.dao.DaoException("DaoPraticien::getOne : erreur requete SELECT : " + ex.getMessage());
+        }
+        return (result);
+    }
+    
 
     /**
      * @param num

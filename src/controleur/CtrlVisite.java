@@ -149,7 +149,9 @@ public class CtrlVisite  extends CtrlAbstrait {
      */
     
     public void creerRapport() throws ParseException{
-        getVue().jComboBoxPraticien.getSelectedItem() ;
+        Praticien unPraticien = (Praticien) getVue().jComboBoxPraticien.getSelectedItem() ;
+        String newNom = unPraticien.getNom() ;
+        String newPrenom = unPraticien.getPrenom() ;
         str = getVue().date.getText() ;
         newDate = format.parse(str) ;
         newMotif = getVue().motif.getText() ;
@@ -157,7 +159,7 @@ public class CtrlVisite  extends CtrlAbstrait {
         
         //Test
         
-        System.out.println("Date : "+newDate+" Motif : "+newMotif+" newBilan : "+newBilan);
+        System.out.println("Praticien : "+newNom+" "+newPrenom+"Date : "+newDate+" Motif : "+newMotif+" newBilan : "+newBilan);
     }
     
      /**
