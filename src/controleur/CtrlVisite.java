@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controleur;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,11 +11,12 @@ import modele.dao.DaoPraticien;
 import modele.dao.DaoRapportVisite;
 import modele.metier.Praticien;
 import modele.metier.RapportVisite;
+import modele.metier.Visiteur;
 import vue.VueVisite;
 
 /**
  *
- * @author btssio
+ * @author Groupe2 PPE SLAM
  */
 public class CtrlVisite  extends CtrlAbstrait {
         
@@ -33,6 +30,10 @@ public class CtrlVisite  extends CtrlAbstrait {
     private Date newDate ;
     private String newMotif ;
     private String newBilan ;
+    private String split[] ;
+    private  String newNom ;
+    private   String newPrenom ;
+    private int newNum ;
     
     /**
      * @param ctrlPrincipal
@@ -42,21 +43,26 @@ public class CtrlVisite  extends CtrlAbstrait {
         super(ctrlPrincipal);
         vue = new VueVisite(this);
         actualiser();
+     
     }
       
       /**
-       * 
+       * Charge les praticiens et la liste des rapports puis affiche le rapport courant
        * @throws Exception 
        */
        public final void actualiser() throws Exception {
            chargerListePraticiens() ;
            chargerListeRapport() ;
            rapportSelectionner() ;
-           
+            getVue().jComboBoxPraticien.setEditable(false);
+            getVue().date.setEditable(false);
+            getVue().motif.setEditable(false);
+            getVue().bilan.setEditable(false);
+            getVue().validerRapport.setEnabled(false);
     }
    
        /**
-        * 
+        * Permet de quitter la vue
         * @throws Exception 
         */
     public void visiteQuitter() throws Exception{
@@ -75,15 +81,13 @@ public class CtrlVisite  extends CtrlAbstrait {
         getVue().jComboBoxPraticien.addItem("Aucun");
         listPraticiens = daoPraticien.getAll() ;
         for (Praticien unPraticien : listPraticiens) {
-            getVue().jComboBoxPraticien.addItem(unPraticien.getNom()+" "+unPraticien.getPrenom());
+            getVue().jComboBoxPraticien.addItem(unPraticien.toString());
 
         }
-
     }
     public void chargerListeRapport() throws DaoException, Exception {
-       
         listRapportsVisite = daoRapportVisite.getAll() ;  
-  
+        System.out.println(listRapportsVisite);
     }
     
     /**
@@ -96,8 +100,9 @@ public class CtrlVisite  extends CtrlAbstrait {
         getVue().date.setText(format.format(unRapport.getDate()));
         getVue().motif.setText(unRapport.getMotif());
         getVue().bilan.setText(unRapport.getBilan());
-        Praticien unPraticien = unRapport.getPraticien() ; 
-        getVue().jComboBoxPraticien.setSelectedItem(unPraticien.getNom()+" "+unPraticien.getPrenom());
+        Praticien unPraticien = unRapport.getPraticien() ;
+        
+        getVue().jComboBoxPraticien.setSelectedItem(unPraticien.toString());
     }
     
     /**
@@ -131,10 +136,11 @@ public class CtrlVisite  extends CtrlAbstrait {
      **/
     
     public void visiteReset(){
+        Date date = new Date();
         getVue().num.setText(" ");
         getVue().jComboBoxPraticien.setEditable(true);
         getVue().jComboBoxPraticien.setSelectedItem("Aucun");
-        getVue().date.setText(" ");
+        getVue().date.setText(format.format(date));
         getVue().date.setEditable(true);
         getVue().motif.setText(" ") ;
         getVue().motif.setEditable(true);
@@ -148,18 +154,38 @@ public class CtrlVisite  extends CtrlAbstrait {
      * 
      */
     
-    public void creerRapport() throws ParseException{
-        Praticien unPraticien = (Praticien) getVue().jComboBoxPraticien.getSelectedItem() ;
-        String newNom = unPraticien.getNom() ;
-        String newPrenom = unPraticien.getPrenom() ;
+    public void creerRapport() throws ParseException, Exception{
+      
+        String unPraticien = getVue().jComboBoxPraticien.getSelectedItem().toString() ;
+        Praticien lePraticien = new Praticien() ;
+        Praticien lePraticienBis = new Praticien() ;
+        Visiteur leVisiteur = new Visiteur() ;
+
+       
         str = getVue().date.getText() ;
         newDate = format.parse(str) ;
         newMotif = getVue().motif.getText() ;
-        newBilan = getVue().bilan.getText() ;
+        newBilan = getVue().bilan.getText() ; 
         
-        //Test
+        split = unPraticien.split(" ") ;
+        newNom = split[0] ;
+        newPrenom = split[1] ;
+        lePraticienBis =  daoPraticien.getByName(newNom, newPrenom) ;
+        newNum = lePraticienBis.getNum() ;
         
-        System.out.println("Praticien : "+newNom+" "+newPrenom+"Date : "+newDate+" Motif : "+newMotif+" newBilan : "+newBilan);
+        lePraticien.setNom(newNom);
+        lePraticien.setPrenom(newPrenom);
+        lePraticien.setNum(newNum);
+        
+        leVisiteur.setNom("swiss") ;
+        leVisiteur.setPrenom("bourdin");
+        
+        RapportVisite leRapport = new RapportVisite(leVisiteur, 0, lePraticien, newDate, newBilan, newMotif) ;
+
+        daoRapportVisite.create(leRapport) ;
+                        
+        actualiser() ;
+
     }
     
      /**

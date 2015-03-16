@@ -1,6 +1,8 @@
 package modele.dao;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import modele.jdbc.Jdbc;
 import modele.metier.*;
@@ -9,9 +11,39 @@ public class DaoRapportVisite implements DaoInterface<RapportVisite, String> {
 
     private DaoVisiteur daoVisiteur = new DaoVisiteur();
     private DaoPraticien daoPraticien = new DaoPraticien();
-
+    private int newNum ;
+    private String split[] ;
+    private String split2[] ;
+    
     public int create(RapportVisite unRapportVisite) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        DateFormat format = new SimpleDateFormat("MM/dd/yy");
+        split = unRapportVisite.getPraticien().toString().split(" ") ;
+        String praticienNom = split[0];
+        String praticienPrenom = split[1];
+        Praticien praticien = daoPraticien.getByName(praticienNom,praticienPrenom);
+       
+        int numPraticien = praticien.getNum() ;
+        
+        split2 = unRapportVisite.getVisiteur().toString().split(" ") ;
+        String visiteurNom = split2[0];
+        String visiteurPrenom = split2[1];
+        Visiteur visiteur = daoVisiteur.getByName(visiteurNom,visiteurPrenom);
+        String numVisiteur = visiteur.getMatricule() ;
+        
+        java.sql.Date sqlDate = new java.sql.Date(unRapportVisite.getDate().getTime());
+        String requete =" INSERT INTO RAPPORT_VISITE (VIS_MATRICULE, PRA_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF) VALUES (?,?,?,?,?)" ;
+        PreparedStatement preparedStatement = Jdbc.getInstance().getConnexion().prepareStatement(requete);
+        preparedStatement.setString(1, numVisiteur);
+        preparedStatement.setInt(2,numPraticien);
+        preparedStatement.setDate(3, sqlDate);
+        preparedStatement.setString(4, unRapportVisite.getBilan());
+        preparedStatement.setString(5, unRapportVisite.getMotif());
+
+        // execute insert SQL stetement
+        preparedStatement.executeUpdate();
+        return 1 ;
+       
     }
 
     /**
@@ -44,7 +76,7 @@ public class DaoRapportVisite implements DaoInterface<RapportVisite, String> {
         ArrayList<RapportVisite> result = new ArrayList();
         ResultSet rs;
         // préparer la requête
-        String requete = "SELECT * FROM RAPPORT_VISITE";
+        String requete = "SELECT * FROM RAPPORT_VISITE ORDER BY RAP_NUM";
         try {
             PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
             rs = ps.executeQuery();

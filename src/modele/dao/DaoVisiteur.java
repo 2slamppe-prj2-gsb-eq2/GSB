@@ -161,6 +161,20 @@ private DaoSecteur daoSecteur = new DaoSecteur() ;
             throw new DaoException("DaoVisiteur - chargerUnEnregistrement : pb JDBC\n" + ex.getMessage());
         }
     }
-    
-    
+
+    Visiteur getByName(String visiteurNom, String visiteurPrenom) throws SQLException, Exception {
+         Visiteur result = null;
+        // préparer la requête
+        String requete = "SELECT * FROM VISITEUR WHERE VIS_NOM=? AND VIS_PRENOM= ?";
+  
+            PreparedStatement ps = Jdbc.getInstance().getConnexion().prepareStatement(requete);
+            ps.setString(1, visiteurNom);
+            ps.setString(2, visiteurPrenom);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                result = chargerUnEnregistrement(rs);
+
+    } 
+        return (result);
+    }   
 }

@@ -32,6 +32,9 @@ public class Visiteur {
         this.secteur = secteur;
         this.labo = labo;
     }
+    public Visiteur(){
+        
+    }
 
     
     public String toString2() {
@@ -113,6 +116,10 @@ public class Visiteur {
 
     public void setLabo(Labo labo) {
         this.labo = labo;
+    }
+
+    public String[] split(String _) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

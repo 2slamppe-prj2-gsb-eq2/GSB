@@ -103,7 +103,13 @@ public class Praticien {
         return "Praticien{" + "num=" + num + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", cp=" + cp + ", ville=" + ville + ", coefNotoriete=" + coefNotoriete + ", typeCode=" + typeCode + '}';
     }
     
+
+    @Override
     public String toString(){
-        return nom+" "+prenom ;
+      return this.getNom() + " " + this.getPrenom();
+    }
+
+    public String[] split(String _) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
