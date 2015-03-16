@@ -1,11 +1,13 @@
 package controleur;
 
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
+import java.awt.Component;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 import modele.dao.DaoException;
 import modele.dao.DaoPraticien;
 import modele.dao.DaoRapportVisite;
@@ -87,7 +89,6 @@ public class CtrlVisite  extends CtrlAbstrait {
     }
     public void chargerListeRapport() throws DaoException, Exception {
         listRapportsVisite = daoRapportVisite.getAll() ;  
-        System.out.println(listRapportsVisite);
     }
     
     /**
@@ -183,6 +184,9 @@ public class CtrlVisite  extends CtrlAbstrait {
         RapportVisite leRapport = new RapportVisite(leVisiteur, 0, lePraticien, newDate, newBilan, newMotif) ;
 
         daoRapportVisite.create(leRapport) ;
+        Component frame = null;
+         JOptionPane.showMessageDialog(frame,"Le compte-rendu à été ajoutée");
+            
                         
         actualiser() ;
 
