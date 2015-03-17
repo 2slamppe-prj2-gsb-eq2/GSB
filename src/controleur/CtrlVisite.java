@@ -33,8 +33,8 @@ public class CtrlVisite  extends CtrlAbstrait {
     private String newMotif ;
     private String newBilan ;
     private String split[] ;
-    private  String newNom ;
-    private   String newPrenom ;
+    private String newNom ;
+    private String newPrenom ;
     private int newNum ;
     
     /**
@@ -87,12 +87,18 @@ public class CtrlVisite  extends CtrlAbstrait {
 
         }
     }
+    
+    /**
+     * Charge la liste des rapports de visite
+     * @throws DaoException
+     * @throws Exception 
+     */
     public void chargerListeRapport() throws DaoException, Exception {
         listRapportsVisite = daoRapportVisite.getAll() ;  
     }
     
     /**
-     *
+     * Affiche le rapport selectionner 
      * 
      **/
     public void rapportSelectionner() {
@@ -107,7 +113,7 @@ public class CtrlVisite  extends CtrlAbstrait {
     }
     
     /**
-    *
+    * Affiche le rapports suivant
     *
     **/
     
@@ -120,6 +126,7 @@ public class CtrlVisite  extends CtrlAbstrait {
     }
     
     /**
+     *  Affiche le rapport précédent
      * 
      **/
     
@@ -132,7 +139,7 @@ public class CtrlVisite  extends CtrlAbstrait {
     }
     
     /**
-     * 
+     * Permet d'éffacer les champs afin de saisir des donner
      * 
      **/
     
@@ -151,44 +158,46 @@ public class CtrlVisite  extends CtrlAbstrait {
     }
     
     /**
-     * 
+     * Permet de créer le rapport après avoir rentrer les données
      * 
      */
     
     public void creerRapport() throws ParseException, Exception{
-      
         String unPraticien = getVue().jComboBoxPraticien.getSelectedItem().toString() ;
         Praticien lePraticien = new Praticien() ;
         Praticien lePraticienBis = new Praticien() ;
         Visiteur leVisiteur = new Visiteur() ;
-
-       
         str = getVue().date.getText() ;
         newDate = format.parse(str) ;
         newMotif = getVue().motif.getText() ;
         newBilan = getVue().bilan.getText() ; 
-        
-        split = unPraticien.split(" ") ;
-        newNom = split[0] ;
-        newPrenom = split[1] ;
-        lePraticienBis =  daoPraticien.getByName(newNom, newPrenom) ;
-        newNum = lePraticienBis.getNum() ;
-        
-        lePraticien.setNom(newNom);
-        lePraticien.setPrenom(newPrenom);
-        lePraticien.setNum(newNum);
-        
-        leVisiteur.setNom("swiss") ;
-        leVisiteur.setPrenom("bourdin");
-        
-        RapportVisite leRapport = new RapportVisite(leVisiteur, 0, lePraticien, newDate, newBilan, newMotif) ;
+         if(unPraticien == "Aucun" || newMotif.equals(" ") || newBilan.equals(" ") || newDate.equals(" ")){   
+            Component frame = null;
+            JOptionPane.showMessageDialog(frame,"Tous les champs doivent être remplis");
+           
+        } else {
+            split = unPraticien.split(" ") ;
+            newNom = split[0] ;
+            newPrenom = split[1] ;
+            lePraticienBis =  daoPraticien.getByName(newNom, newPrenom) ;
+            newNum = lePraticienBis.getNum() ;
 
-        daoRapportVisite.create(leRapport) ;
-        Component frame = null;
-         JOptionPane.showMessageDialog(frame,"Le compte-rendu à été ajoutée");
+            lePraticien.setNom(newNom);
+            lePraticien.setPrenom(newPrenom);
+            lePraticien.setNum(newNum);
+
+            leVisiteur.setNom("swiss") ;
+            leVisiteur.setPrenom("bourdin"); 
+            RapportVisite leRapport = new RapportVisite(leVisiteur, 0, lePraticien, newDate, newBilan, newMotif) ;
+            daoRapportVisite.create(leRapport) ;
+            Component frame = null;
+            JOptionPane.showMessageDialog(frame,"Le compte-rendu à été ajoutée");
+             actualiser() ;
+        }
+      
             
                         
-        actualiser() ;
+      
 
     }
     
